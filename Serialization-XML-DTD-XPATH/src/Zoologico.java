@@ -696,15 +696,12 @@ public class Zoologico {
         }
     }
 
-    public static void salvarZoo(){
+    public static void salvarZoo() {
         Scanner input = new Scanner(System.in);
         String ficheiro;
         System.out.println("Qual é o nome do atual/novo ficheiro?");
         ficheiro = input.nextLine();
-        try (
-                FileOutputStream zooOutputFile = new FileOutputStream(ficheiro + ".txt");
-             ObjectOutputStream zooOutputObject = new ObjectOutputStream(zooOutputFile)
-        ) {
+        try (FileOutputStream zooOutputFile = new FileOutputStream(ficheiro + ".sav"); ObjectOutputStream zooOutputObject = new ObjectOutputStream(zooOutputFile)) {
             zooOutputObject.writeObject(zoo);
             zooOutputObject.flush();
             zooOutputObject.close();
@@ -716,7 +713,7 @@ public class Zoologico {
 
 
     private static boolean carregarZoo(String ficheiro) throws ClassNotFoundException {
-        try (FileInputStream zooInputFile = new FileInputStream(ficheiro + ".txt"); ObjectInputStream zooInputObject = new ObjectInputStream(zooInputFile)) {
+        try (FileInputStream zooInputFile = new FileInputStream(ficheiro + ".sav"); ObjectInputStream zooInputObject = new ObjectInputStream(zooInputFile)) {
             zoo = (Zoo) zooInputObject.readObject();
         } catch (IOException e) {
             System.out.println("Erro ao carregar zoo!");
@@ -725,7 +722,7 @@ public class Zoologico {
         return false;
     }
 
-    private static void encerrarPrograma(){
+    private static void encerrarPrograma() {
         System.out.println("Este é o final do seu zoo:");
         salvarZoo();
         zoo.printZoo();
