@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MoP-TP3.iml" filepath="$PROJECT_DIR$/.idea/MoP-TP3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Serialization/Serialization.iml" filepath="$PROJECT_DIR$/Serialization/Serialization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XML-DTD-XPATH/XML-DTD-XPATH.iml" filepath="$PROJECT_DIR$/XML-DTD-XPATH/XML-DTD-XPATH.iml" />
+    </modules>
+  </component>
+</project>

@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73618aa0-bbd1-48ff-bf44-28d803b0ad83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ZooSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Serialization/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Serialization/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Serialization/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Serialization/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Serialization/Serialization-XML-DTD-XPATH.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Serialization/Serialization.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Serialization/Zoologico.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization-XML-DTD-XPATH.iml" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoologico.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoologico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +49,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bagui/Desktop/Pastas/Faculdade/GitHub/MoP-TP3/Serialization-XML-DTD-XPATH&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bagui/Desktop/Pastas/Faculdade/GitHub/MoP-TP3/XML-DTD-XPATH&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -96,7 +101,9 @@
       <workItem from="1745160498105" duration="8310000" />
       <workItem from="1745194722153" duration="5907000" />
       <workItem from="1745276581140" duration="1264000" />
-      <workItem from="1745281224531" duration="1288000" />
+      <workItem from="1745281224531" duration="2128000" />
+      <workItem from="1745285064947" duration="240000" />
+      <workItem from="1745285477259" duration="56000" />
     </task>
     <servers />
   </component>

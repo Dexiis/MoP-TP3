@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Serialization-XML-DTD-XPATH.iml" filepath="$PROJECT_DIR$/Serialization-XML-DTD-XPATH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XML-DTD-XPATH.iml" filepath="$PROJECT_DIR$/XML-DTD-XPATH.iml" />
     </modules>
   </component>
 </project>
