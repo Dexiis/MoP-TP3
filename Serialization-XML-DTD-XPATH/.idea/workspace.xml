@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73618aa0-bbd1-48ff-bf44-28d803b0ad83" name="Changes" comment="" />
+    <list default="true" id="73618aa0-bbd1-48ff-bf44-28d803b0ad83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ZooSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoologico.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,6 +95,8 @@
       <workItem from="1744713995481" duration="233000" />
       <workItem from="1745160498105" duration="8310000" />
       <workItem from="1745194722153" duration="5907000" />
+      <workItem from="1745276581140" duration="1264000" />
+      <workItem from="1745281224531" duration="1288000" />
     </task>
     <servers />
   </component>

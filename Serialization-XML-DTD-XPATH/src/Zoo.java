@@ -122,13 +122,13 @@ public class Zoo implements Serializable {
     /**
      * Adiciona um novo animal à lista.
      *
-     * @param name Nome do animal.
-     * @param age  Idade do animal.
+     * @param name   Nome do animal.
+     * @param age    Idade do animal.
      * @param weigth Peso do animal.
-     * @param type Tipo do animal
+     * @param type   Tipo do animal
      */
     public void addAnimais(String name, int age, int weigth, String type) {
-        animais.add(AnimalFactory.getAnimal(name,age,weigth,type));
+        animais.add(AnimalFactory.getAnimal(name, age, weigth, type));
         System.out.println("O(A) " + type + " foi adicionado com sucesso!");
     }
 
@@ -173,7 +173,7 @@ public class Zoo implements Serializable {
      * @param type       Tipo do funcionário.
      */
     public void addFuncionarios(String name, int age, int ID, int experience, String type) {
-        funcionarios.add(EmployeeFactory.getFuncionario(name,age,ID,experience,type));
+        funcionarios.add(EmployeeFactory.getFuncionario(name, age, ID, experience, type));
         System.out.println("O(A) " + type + " foi adicionado com sucesso!");
     }
 
