@@ -1,10 +1,10 @@
-import java.io.*;
 import java.util.Scanner;
 
 public class Zoologico {
     static Zoo zoo = ZooSingleton.getZooInstance("", 0);
+    static String ficheiro = "BaseDados";
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         boolean invalid = true;
 
@@ -696,17 +696,22 @@ public class Zoologico {
         }
     }
 
-    public static void salvarZoo() {
+    private static boolean salvarZoo() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Qual é o nome do ficheiro que quer guardar o Zoo?");
+        ficheiro = input.nextLine() ;
+        XMLBuilder.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
+        return false;
     }
 
-
-    private static boolean carregarZoo(String ficheiro){
+    private static boolean carregarZoo(String nomeDoFicheiro) {
+        ficheiro = nomeDoFicheiro;
         return false;
     }
 
     private static void encerrarPrograma() {
         System.out.println("Este é o final do seu zoo:");
-        salvarZoo();
+        XMLBuilder.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
         zoo.printZoo();
         System.exit(0);
     }
