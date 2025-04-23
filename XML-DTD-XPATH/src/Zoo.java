@@ -129,7 +129,7 @@ public class Zoo implements Serializable {
      */
     public void addAnimais(String name, int age, int weigth, String type) {
         animais.add(AnimalFactory.getAnimal(name, age, weigth, type));
-        System.out.println("O(A) " + type + " foi adicionado com sucesso!");
+        System.out.println("O(A) " + type + " foi adicionado(a) com sucesso!");
     }
 
     /**
@@ -141,7 +141,7 @@ public class Zoo implements Serializable {
         for (Animal animal : animais)
             if (animal.getName().equals(name)) {
                 this.animais.remove(animal);
-                System.out.println("O" + animal.getClass().getSimpleName() + "foi removido com sucesso!");
+                System.out.println("O(A) " + animal.getClass().getSimpleName() + " foi removido(a) com sucesso!");
                 break;
             }
     }
@@ -158,7 +158,7 @@ public class Zoo implements Serializable {
             if (animal.getName().equals(name)) {
                 animal.setAge(age);
                 animal.setPeso(peso);
-                System.out.println("O " + animal.getClass().getSimpleName() + " foi mudado com sucesso!");
+                System.out.println("O(A) " + animal.getClass().getSimpleName() + " foi mudado(a) com sucesso!");
                 break;
             }
     }

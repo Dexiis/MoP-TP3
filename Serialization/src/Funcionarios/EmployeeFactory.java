@@ -1,7 +1,9 @@
 package Funcionarios;
 
 public class EmployeeFactory {
-    public EmployeeFactory() {}
+    public EmployeeFactory() {
+    }
+
     public static Funcionario getFuncionario(String name, int age, int ID, int experience, String type) {
         switch (type) {
             case "tratador" -> {

@@ -1,7 +1,9 @@
 package Animais;
 
 public class AnimalFactory {
-    public AnimalFactory() {}
+    public AnimalFactory() {
+    }
+
     public static Animal getAnimal(String name, int age, int weight, String type) {
         switch (type) {
             case "leão" -> {

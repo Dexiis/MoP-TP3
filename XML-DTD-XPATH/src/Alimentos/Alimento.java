@@ -2,7 +2,7 @@ package Alimentos;
 
 import java.io.Serializable;
 
-abstract class Alimento implements Serializable {
+public abstract class Alimento implements Serializable {
     private int quantidade;
 
     /**

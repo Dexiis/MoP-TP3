@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73618aa0-bbd1-48ff-bf44-28d803b0ad83" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Serialization/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Serialization/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Serialization/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Serialization/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Serialization/Serialization-XML-DTD-XPATH.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Serialization/Serialization.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Serialization/Zoologico.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization-XML-DTD-XPATH.iml" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoologico.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zoologico.java" afterDir="false" />
-    </list>
+    <list default="true" id="73618aa0-bbd1-48ff-bf44-28d803b0ad83" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,6 +94,7 @@
       <workItem from="1745281224531" duration="2128000" />
       <workItem from="1745285064947" duration="240000" />
       <workItem from="1745285477259" duration="56000" />
+      <workItem from="1745285637084" duration="6000" />
     </task>
     <servers />
   </component>

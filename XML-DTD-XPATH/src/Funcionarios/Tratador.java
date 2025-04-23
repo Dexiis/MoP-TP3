@@ -1,12 +1,14 @@
 package Funcionarios;
+
 import Animais.Animal;
+
 import java.util.ArrayList;
 
 /**
  * Classe que representa um tratador de animais num jardim zoológico.
  * Cada tratador tem um nome, idade, identificação única e anos de experiência.
  */
-public class Tratador extends Funcionario implements IAnimalManager, java.io.Serializable{
+public class Tratador extends Funcionario implements IAnimalManager, java.io.Serializable {
     private final ArrayList<Object> animais = new ArrayList<>();
 
     /**

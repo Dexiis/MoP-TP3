@@ -90,13 +90,13 @@ public abstract class Animal implements Serializable {
     /**
      * Confirma se há comida suficiente em “stock” para alimentar o animal.
      *
-     * @param carne  Stock existente de carne.
-     * @param palha  Stock existente de palha.
-     * @param peixe  Stock existente de peixe.
-     * @param leoes Número de Leões.
+     * @param carne     Stock existente de carne.
+     * @param palha     Stock existente de palha.
+     * @param peixe     Stock existente de peixe.
+     * @param leoes     Número de Leões.
      * @param elefantes Número de Elefantes.
-     * @param girafas Número de Girafas.
-     * @param pinguins Número de Pinguins.
+     * @param girafas   Número de Girafas.
+     * @param pinguins  Número de Pinguins.
      */
     public abstract boolean requiredFood(int carne, int palha, int peixe, int leoes, int elefantes, int girafas, int pinguins);
 

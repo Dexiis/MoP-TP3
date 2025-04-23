@@ -5,7 +5,8 @@ public class AlimentoSingleton {
     private static Palha palhaInstance;
     private static Peixe peixeInstance;
 
-    private AlimentoSingleton() {}
+    private AlimentoSingleton() {
+    }
 
     public static Carne getCarneInstance(int quantidade) {
         if (carneInstance == null) {

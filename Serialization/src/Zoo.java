@@ -141,7 +141,7 @@ public class Zoo implements Serializable {
         for (Animal animal : animais)
             if (animal.getName().equals(name)) {
                 this.animais.remove(animal);
-                System.out.println("O" + animal.getClass().getSimpleName() + "foi removido com sucesso!");
+                System.out.println("O " + animal.getClass().getSimpleName() + " foi removido com sucesso!");
                 break;
             }
     }
@@ -158,7 +158,7 @@ public class Zoo implements Serializable {
             if (animal.getName().equals(name)) {
                 animal.setAge(age);
                 animal.setPeso(peso);
-                System.out.println("O " + animal.getClass().getSimpleName() + " foi mudado com sucesso!");
+                System.out.println("O(A) " + animal.getClass().getSimpleName() + " foi mudado(a) com sucesso!");
                 break;
             }
     }
@@ -186,7 +186,7 @@ public class Zoo implements Serializable {
         for (Funcionario funcionario : funcionarios) {
             if (funcionario.getID() == ID) {
                 this.funcionarios.remove(funcionario);
-                System.out.println("O " + funcionario.getClass().getSimpleName() + " foi mudado com sucesso!");
+                System.out.println("O(A) " + funcionario.getClass().getSimpleName() + " foi mudado(a) com sucesso!");
                 break;
             }
         }

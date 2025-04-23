@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Zoologico {
     static Zoo zoo = ZooSingleton.getZooInstance("", 0);
+    static String ficheiro = "BaseDados";
 
     public static void main(String[] args) throws ClassNotFoundException {
         Scanner input = new Scanner(System.in);
@@ -14,12 +15,16 @@ public class Zoologico {
             System.out.println("2 - Importar um zoo existente.");
             switch (input.nextLine()) {
                 case "1":
+                    System.out.println("Pretende começar com um zoo predefinido? (Escreva 'n' para um zoo sem nada)");
+                    if (!input.nextLine().equals("n")) {
+                        carregarZoo("ZooPredefinido");
+                        invalid = false;
+                        break;
+                    }
                     System.out.println("Dê um nome para o seu zoo: ");
                     zoo.setName(input.nextLine());
                     System.out.println("Qual será o preçario para o seu zoo:");
                     zoo.setPrecario(Integer.parseInt(input.nextLine()));
-                    System.out.println("Pretende começar com um zoo predefinido? (Escreva 'n' para um zoo sem nada)");
-                    if (!input.nextLine().equals("n")) criarZooPredefinido();
                     invalid = false;
                     break;
                 case "2":
@@ -711,8 +716,20 @@ public class Zoologico {
         }
     }
 
+    public static void salvarZoo(String ficheiro) {
+        try (FileOutputStream zooOutputFile = new FileOutputStream(ficheiro + ".sav"); ObjectOutputStream zooOutputObject = new ObjectOutputStream(zooOutputFile)) {
+            zooOutputObject.writeObject(zoo);
+            zooOutputObject.flush();
+            zooOutputObject.close();
+            System.out.println("Zoo salvo com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar zoo!");
+        }
+    }
 
-    private static boolean carregarZoo(String ficheiro) throws ClassNotFoundException {
+
+    private static boolean carregarZoo(String nomeDoFicheiro) throws ClassNotFoundException {
+        ficheiro = nomeDoFicheiro;
         try (FileInputStream zooInputFile = new FileInputStream(ficheiro + ".sav"); ObjectInputStream zooInputObject = new ObjectInputStream(zooInputFile)) {
             zoo = (Zoo) zooInputObject.readObject();
         } catch (IOException e) {
@@ -724,7 +741,7 @@ public class Zoologico {
 
     private static void encerrarPrograma() {
         System.out.println("Este é o final do seu zoo:");
-        salvarZoo();
+        salvarZoo(ficheiro);
         zoo.printZoo();
         System.exit(0);
     }
