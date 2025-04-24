@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Zoologico {
-    static Zoo zoo = ZooSingleton.getZooInstance("", 0);
+    static Zoo zoo;
     static String ficheiro = "BaseDados";
 
     public static void main(String[] args) {
@@ -14,12 +14,16 @@ public class Zoologico {
             System.out.println("2 - Importar um zoo existente.");
             switch (input.nextLine()) {
                 case "1":
-                    System.out.println("Dê um nome para o seu zoo: ");
-                    zoo.setName(input.nextLine());
-                    System.out.println("Qual será o preçario para o seu zoo:");
-                    zoo.setPrecario(Integer.parseInt(input.nextLine()));
                     System.out.println("Pretende começar com um zoo predefinido? (Escreva 'n' para um zoo sem nada)");
-                    if (!input.nextLine().equals("n")) criarZooPredefinido();
+                    if (!input.nextLine().equals("n")){
+                        criarZooPredefinido();
+                        break;
+                    }
+                    System.out.println("Dê um nome para o seu zoo: ");
+                    String zooName = input.nextLine();
+                    System.out.println("Qual será o preçario para o seu zoo:");
+                    int zooPrecario = Integer.parseInt(input.nextLine());
+                    zoo = ZooSingleton.getZooInstance(zooName, zooPrecario);
                     invalid = false;
                     break;
                 case "2":

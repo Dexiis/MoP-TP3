@@ -27,18 +27,25 @@
 
         <!ELEMENT animais (leoes, elefantes, girafas, pinguins)>
 
-        <!ELEMENT leoes (animal*)>
+        <!ELEMENT leoes (leao*)>
+        <!ELEMENT leao (age, weight, diet, type)>
+        <!ATTLIST leao name CDATA #REQUIRED>
 
-        <!ELEMENT elefantes (animal*)>
+        <!ELEMENT elefantes (elefante*)>
+        <!ELEMENT elefante (age, weight, diet, type)>
+        <!ATTLIST elefante name CDATA #REQUIRED>
 
-        <!ELEMENT girafas (animal*)>
+        <!ELEMENT girafas (girafa*)>
+        <!ELEMENT girafa (age, weight, diet, type)>
+        <!ATTLIST girafa name CDATA #REQUIRED>
 
-        <!ELEMENT pinguins (animal*)>
+        <!ELEMENT pinguins (pinguim*)>
+        <!ELEMENT pinguim (age, weight, diet, type)>
+        <!ATTLIST pinguim name CDATA #REQUIRED>
 
-        <!ELEMENT animal (age, weight)>
-        <!ATTLIST animal name CDATA #REQUIRED>
         <!ELEMENT weight (#PCDATA)>
-
+        <!ELEMENT diet (#PCDATA)>
+        <!ELEMENT type (#PCDATA)>
 
         <!ELEMENT alimentos (carne, palha, peixe)>
 

@@ -50,36 +50,36 @@
     </funcionarios>
     <animais>
         <leoes>
-            <animal name="Simba">
+            <leao name="Simba">
                 <age>14</age>
                 <weight>200</weight>
                 <diet>Carnivoro</diet>
-                <weight>Mamífero</weight>
-            </animal>
+                <type>Mamífero</type>
+            </leao>
         </leoes>
         <elefantes>
-            <animal name="César">
+            <elefante name="César">
                 <age>40</age>
                 <weight>5500</weight>
                 <diet>Herbivoro</diet>
-                <weight>Mamífero</weight>
-            </animal>
+                <type>Mamífero</type>
+            </elefante>
         </elefantes>
         <girafas>
-            <animal name="Giraldina">
+            <girafa name="Giraldina">
                 <age>17</age>
                 <weight>600</weight>
                 <diet>Herbivoro</diet>
-                <weight>Mamífero</weight>
-            </animal>
+                <type>Mamífero</type>
+            </girafa>
         </girafas>
         <pinguins>
-            <animal name="Dave">
+            <pinguim name="Dave">
                 <age>12</age>
                 <weight>30</weight>
                 <diet>Carnivoro</diet>
-                <weight>Ave</weight>
-            </animal>
+                <type>Ave</type>
+            </pinguim>
         </pinguins>
     </animais>
     <alimentos>

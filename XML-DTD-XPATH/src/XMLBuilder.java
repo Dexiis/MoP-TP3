@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-
 public class XMLBuilder {
 
     public static void salvarZoo(String zooName, int zooPrecario, ArrayList<Animal> animais, ArrayList<Funcionario> funcionarios, ArrayList<Visitante> visitantes, Carne carne, Palha palha, Peixe peixe, String ficheiro) {
@@ -90,7 +89,7 @@ public class XMLBuilder {
             }
 
             for (Animal animal : animais) {
-                Element novoAnimal = documentZoo.createElement("animal");
+                Element novoAnimal = documentZoo.createElement(animal.getClass().getSimpleName().toLowerCase());
                 novoAnimal.setAttribute("name", animal.getName());
 
                 Element animalAge = documentZoo.createElement("age");
@@ -180,7 +179,7 @@ public class XMLBuilder {
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-        transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "XML/BaseDados.dtd");
+        transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "BaseDados.dtd");
 
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(output);
@@ -193,7 +192,12 @@ public class XMLBuilder {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(new File("XML/" + ficheiro + ".xml"));
+            Document document;
+            if (ficheiro.equals("ZooPredefinido")) {
+                document = builder.parse(new File(ficheiro + ".xml"));
+            } else {
+                document = builder.parse(new File("XML/" + ficheiro + ".xml"));
+            }
 
             Element zooElement = document.getDocumentElement();
             String nameZoo = zooElement.getAttribute("nome");
@@ -231,7 +235,7 @@ public class XMLBuilder {
                     NodeList animalSubclassList = animaisContainer.getElementsByTagName(collectionTagName);
                     if (animalSubclassList.getLength() > 0) {
                         Element animalSubclassContainer = (Element) animalSubclassList.item(0);
-                        NodeList animalNodes = animalSubclassContainer.getElementsByTagName("animal");
+                        NodeList animalNodes = animalSubclassContainer.getElementsByTagName(animalType.toLowerCase());
                         for (int i = 0; i < animalNodes.getLength(); i++) {
                             Node animalNode = animalNodes.item(i);
                             if (animalNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -255,6 +259,7 @@ public class XMLBuilder {
                     }
                 }
             }
+
             NodeList funcionariosListXml = zooElement.getElementsByTagName("funcionarios");
             if (funcionariosListXml.getLength() > 0) {
                 Element funcionariosContainer = (Element) funcionariosListXml.item(0);
@@ -268,9 +273,7 @@ public class XMLBuilder {
                     NodeList funcionarioSubclassList = funcionariosContainer.getElementsByTagName(collectionTagName);
                     if (funcionarioSubclassList.getLength() > 0) {
                         Element funcionarioSubclassContainer = (Element) funcionarioSubclassList.item(0);
-                        String singularTagName = collectionTagName.substring(0, collectionTagName.length() - 1); // Assume que o nome da coleção é o plural + 's'
-                        NodeList funcionarioNodes = funcionarioSubclassContainer.getElementsByTagName(singularTagName);
-
+                        NodeList funcionarioNodes = funcionarioSubclassContainer.getElementsByTagName(funcionarioType.toLowerCase());
                         for (int i = 0; i < funcionarioNodes.getLength(); i++) {
                             Node funcionarioNode = funcionarioNodes.item(i);
                             if (funcionarioNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -278,20 +281,19 @@ public class XMLBuilder {
 
                                 String nameFuncionario = funcionarioElement.getElementsByTagName("name").item(0).getTextContent();
                                 int ageFuncionario = Integer.parseInt(funcionarioElement.getElementsByTagName("age").item(0).getTextContent());
-                                int idFuncionario = Integer.parseInt(funcionarioElement.getAttribute("id"));
-                                int experienceFuncionario = Integer.parseInt(funcionarioElement.getElementsByTagName("experience").item(0).getTextContent());
+                                int idFuncionario = Integer.parseInt(funcionarioElement.getAttribute("ID"));
+                                int experienceTratador = Integer.parseInt(funcionarioElement.getElementsByTagName("experience").item(0).getTextContent());
 
                                 if (funcionarioType.equals("Administrador")) {
-                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceFuncionario, "administrador");
+                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "administrador");
                                 } else if (funcionarioType.equals("Tratador")) {
-                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceFuncionario, "tratador");
-                                    (((Element) funcionarioNode).getElementsByTagName("animal_associated")).getLength();
-                                    for (int j = 0; j < (((Element) funcionarioNode).getElementsByTagName("animal_associated")).getLength(); j++) {
-                                        String[] words = (funcionarioElement.getElementsByTagName("animal_associated").item(j).getTextContent()).split(" ");
-                                        newZoo.setAnimalTratador(idFuncionario, words[1]);
+                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "tratador");
+                                    for (int j = 0; j < funcionarioElement.getElementsByTagName("animal_associated").getLength(); j++) {
+                                        String[] words = funcionarioElement.getElementsByTagName("animal_associated").item(j).getTextContent().split(" ");
+                                        newZoo.setAnimalTratador(idFuncionario, words[2]);
                                     }
                                 } else if (funcionarioType.equals("Guia")) {
-                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceFuncionario, "guia");
+                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "guia");
                                 }
                             }
                         }
@@ -323,6 +325,7 @@ public class XMLBuilder {
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
             System.out.println("Erro ao ler o ficheiro XML");
-        } return new Object[]{newZoo, true};
+        }
+        return new Object[]{newZoo, true};
     }
 }
