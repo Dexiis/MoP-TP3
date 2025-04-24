@@ -105,7 +105,7 @@ public class XMLBuilder {
                 animalDiet.appendChild(documentZoo.createTextNode(animal.getDiet()));
                 novoAnimal.appendChild(animalDiet);
 
-                Element animalType = documentZoo.createElement("weight");
+                Element animalType = documentZoo.createElement("type");
                 animalType.appendChild(documentZoo.createTextNode(animal.getType()));
                 novoAnimal.appendChild(animalType);
 
