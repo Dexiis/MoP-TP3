@@ -16,7 +16,9 @@ public class Zoologico {
                 case "1":
                     System.out.println("Pretende começar com um zoo predefinido? (Escreva 'n' para um zoo sem nada)");
                     if (!input.nextLine().equals("n")){
-                        criarZooPredefinido();
+                        Object[] result = carregarZoo("ZooPredefinido");
+                        zoo = (Zoo) result[0];
+                        invalid = (Boolean) result[1];
                         break;
                     }
                     System.out.println("Dê um nome para o seu zoo: ");
@@ -57,27 +59,6 @@ public class Zoologico {
                 default -> System.out.println("Essa opção não é válida.");
             }
         }
-    }
-
-    public static void criarZooPredefinido() {
-        zoo.addAnimais("Simba", 14, 200, "leão");
-        zoo.addAnimais("César", 40, 5500, "elefante");
-        zoo.addAnimais("Giraldina", 17, 600, "girafa");
-        zoo.addAnimais("Dave", 12, 30, "pinguim");
-        zoo.addFuncionarios("Artur", 19, 52553, 3, "tratador");
-        zoo.setAnimalTratador(52553, "Simba");
-        zoo.setAnimalTratador(52553, "César");
-        zoo.addFuncionarios("Vermelhudo", 19, 51475, 3, "tratador");
-        zoo.setAnimalTratador(51475, "Giraldina");
-        zoo.setAnimalTratador(51475, "Dave");
-        zoo.addFuncionarios("David", 20, 69697, 2, "guia");
-        zoo.addFuncionarios("Bernardo", 20, 57489, 4, "administrador");
-        zoo.addVisitante("Bea", 62704, 18);
-        zoo.addVisitante("Duarte", 32442, 32);
-        zoo.addVisitante("Lara", 43760, 25);
-        zoo.addAlimento(6 * 3, "carne");
-        zoo.addAlimento(135 * 3 + 66 * 3, "palha");
-        zoo.addAlimento(3 * 3, "peixe");
     }
 
     public static void listaRequerida(int requerimento) {
@@ -706,17 +687,17 @@ public class Zoologico {
         Scanner input = new Scanner(System.in);
         System.out.println("Qual é o nome do ficheiro que quer guardar o Zoo?");
         ficheiro = input.nextLine() ;
-        XMLBuilder.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
+        XML.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
     }
 
     public static Object[] carregarZoo(String nomeDoFicheiro) {
         ficheiro = nomeDoFicheiro;
-        return XMLBuilder.carregarZoo(ficheiro);
+        return XML.carregarZoo(ficheiro);
     }
 
     private static void encerrarPrograma() {
         System.out.println("Este é o final do seu zoo:");
-        XMLBuilder.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
+        XML.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
         zoo.printZoo();
         System.exit(0);
     }

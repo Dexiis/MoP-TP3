@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-public class XMLBuilder {
+public class XML {
 
     public static void salvarZoo(String zooName, int zooPrecario, ArrayList<Animal> animais, ArrayList<Funcionario> funcionarios, ArrayList<Visitante> visitantes, Carne carne, Palha palha, Peixe peixe, String ficheiro) {
         Document documentZoo;
@@ -164,7 +164,16 @@ public class XMLBuilder {
 
             String nomeDoFicheiro = "XML/" + ficheiro + ".xml";
             try (FileOutputStream fileOut = new FileOutputStream(nomeDoFicheiro)) {
-                writeXml(documentZoo, fileOut);
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+                transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "BaseDados.dtd");
+
+                DOMSource source = new DOMSource(documentZoo);
+                StreamResult result = new StreamResult(fileOut);
+
+                transformer.transform(source, result);
                 System.out.println("XML do Zoo construído com sucesso!");
             } catch (IOException | TransformerException e) {
                 System.err.println("Erro ao guardar o  XML do Zoo");
@@ -172,19 +181,6 @@ public class XMLBuilder {
         } catch (ParserConfigurationException e) {
             System.err.println("Erro na configuração do XML");
         }
-    }
-
-    private static void writeXml(Document doc, OutputStream output) throws TransformerException {
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-        transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "BaseDados.dtd");
-
-        DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(output);
-
-        transformer.transform(source, result);
     }
 
     public static Object[] carregarZoo(String ficheiro) {
@@ -323,7 +319,6 @@ public class XMLBuilder {
 
             return new Object[]{newZoo, false};
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            e.printStackTrace();
             System.out.println("Erro ao ler o ficheiro XML");
         }
         return new Object[]{newZoo, true};
