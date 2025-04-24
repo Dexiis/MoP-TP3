@@ -1,35 +1,55 @@
-<!ELEMENT zoo (name, precario, visitantes?, funcionarios?, animais?, alimentos?)>
+<!ELEMENT zoo (precario, visitantes, funcionarios, animais, alimentos)>
+
         <!ATTLIST zoo nome CDATA #REQUIRED>
 
-
-        <!ELEMENT visitantes (visitante*)>
-        <!ELEMENT funcionarios (funcionario*)>
-        <!ELEMENT animais (animal*)>
-        <!ELEMENT alimentos (alimento*)>
-
-        <!ELEMENT visitante (ID, name, age)>
-        <!ATTLIST visitante id CDATA #REQUIRED>
-
-        <!ELEMENT funcionario (name, age, ID, experiencia, (administrador | guia | tratador))>
-        <!ATTLIST funcionario id CDATA #REQUIRED>
-
-
-        <!ELEMENT animal (name, age, weight, diet, type, (elefante | girafa | leao | pinguim))>
-        <!ATTLIST animal id CDATA #REQUIRED>
-        <!ELEMENT weight (#PCDATA)>
-        <!ELEMENT diet (#PCDATA)>
-        <!ELEMENT type (#PCDATA)>
-
-        <!ELEMENT alimento (quantidade, (carne | palha | peixe))>
-        <!ATTLIST alimento id CDATA #REQUIRED>
-        <!ELEMENT quantidade (#PCDATA)>
-        <!ELEMENT experiencia (#PCDATA)>
-        <!ELEMENT ID (#PCDATA)>
-        <!ELEMENT age (#PCDATA)>
-        <!ELEMENT name (#PCDATA)>
         <!ELEMENT precario (#PCDATA)>
 
-        <!ELEMENT administrador EMPTY>  <!ELEMENT guia EMPTY> <!ELEMENT tratador (animaisAssociados?)>
-        <!ELEMENT animaisAssociados (animalRef*)>   <!ELEMENT animalRef EMPTY> <!ATTLIST animalRef animalId IDREF #REQUIRED>
-        <!ELEMENT elefante EMPTY> <!ELEMENT girafa EMPTY>   <!ELEMENT leao EMPTY>   <!ELEMENT pinguim EMPTY>
-        <!ELEMENT carne EMPTY>    <!ELEMENT palha EMPTY>    <!ELEMENT peixe EMPTY>
+        <!ELEMENT visitantes (visitante*)>
+        <!ELEMENT visitante (name, age)>
+        <!ATTLIST visitante ID CDATA #REQUIRED>
+
+        <!ELEMENT funcionarios (administradores, tratadores, guias)>
+
+        <!ELEMENT administradores (administrador*)>
+        <!ELEMENT administrador (name, age, experience)>
+        <!ATTLIST administrador ID CDATA #REQUIRED>
+
+        <!ELEMENT tratadores (tratador*)>
+        <!ELEMENT tratador (name, age, experience, animal_associated*)>
+        <!ATTLIST tratador ID CDATA #REQUIRED>
+
+        <!ELEMENT guias (guia*)>
+        <!ELEMENT guia (name, age, experience)>
+        <!ATTLIST guia ID CDATA #REQUIRED>
+
+        <!ELEMENT experience (#PCDATA)>
+        <!ELEMENT animal_associated (#PCDATA)>
+
+        <!ELEMENT animais (leoes, elefantes, girafas, pinguins)>
+
+        <!ELEMENT leoes (animal*)>
+
+        <!ELEMENT elefantes (animal*)>
+
+        <!ELEMENT girafas (animal*)>
+
+        <!ELEMENT pinguins (animal*)>
+
+        <!ELEMENT animal (age, weight)>
+        <!ATTLIST animal name CDATA #REQUIRED>
+        <!ELEMENT weight (#PCDATA)>
+
+
+        <!ELEMENT alimentos (carne, palha, peixe)>
+
+        <!ELEMENT carne EMPTY>
+        <!ATTLIST carne quantidade CDATA #REQUIRED>
+
+        <!ELEMENT palha EMPTY>
+        <!ATTLIST palha quantidade CDATA #REQUIRED>
+
+        <!ELEMENT peixe EMPTY>
+        <!ATTLIST peixe quantidade CDATA #REQUIRED>
+
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT age (#PCDATA)>

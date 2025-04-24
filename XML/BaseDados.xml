@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE zoo SYSTEM "XML/BaseDados.dtd">
-<zoo nome="das">
-    <precario>123</precario>
+<!DOCTYPE zoo SYSTEM "BaseDados.dtd">
+<zoo nome="rICARDO">
+    <precario>40</precario>
     <visitantes>
         <visitante ID="62704">
             <name>Bea</name>
@@ -18,34 +18,34 @@
     </visitantes>
     <funcionarios>
         <administradores>
-            <funcionario ID="57489">
+            <administrador ID="57489">
                 <name>Bernardo</name>
                 <age>20</age>
                 <experience>4</experience>
-            </funcionario>
+            </administrador>
         </administradores>
         <tratadores>
-            <funcionario ID="52553">
+            <tratador ID="52553">
                 <name>Artur</name>
                 <age>19</age>
                 <experience>3</experience>
                 <animal_associated>O Leao Simba de 14 anos, pesa 200Kg.</animal_associated>
                 <animal_associated>O Elefante César de 40 anos, pesa 5500Kg.</animal_associated>
-            </funcionario>
-            <funcionario ID="51475">
+            </tratador>
+            <tratador ID="51475">
                 <name>Vermelhudo</name>
                 <age>19</age>
                 <experience>3</experience>
                 <animal_associated>O Girafa Giraldina de 17 anos, pesa 600Kg.</animal_associated>
                 <animal_associated>O Pinguim Dave de 12 anos, pesa 30Kg.</animal_associated>
-            </funcionario>
+            </tratador>
         </tratadores>
         <guias>
-            <funcionario ID="69697">
+            <guia ID="69697">
                 <name>David</name>
                 <age>20</age>
                 <experience>2</experience>
-            </funcionario>
+            </guia>
         </guias>
     </funcionarios>
     <animais>

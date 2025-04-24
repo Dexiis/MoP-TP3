@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XMLBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Alimentos/AlimentoSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Alimentos/AlimentoSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Animais/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Animais/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Animais/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Animais/AnimalFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Funcionarios/EmployeeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Funcionarios/EmployeeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Funcionarios/Tratador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Funcionarios/Tratador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Zoo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Zoologico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Alimentos/Alimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Alimentos/Alimento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Alimentos/AlimentoSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Alimentos/AlimentoSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Animais/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Animais/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Animais/AnimalFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Animais/AnimalFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/EmployeeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/EmployeeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/Tratador.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/Tratador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XMLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XMLBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML/BaseDados.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/XML/BaseDados.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML/BaseDados.xml" beforeDir="false" afterPath="$PROJECT_DIR$/XML/BaseDados.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +71,9 @@
       <updated>1745284914423</updated>
       <workItem from="1745284915502" duration="5000" />
       <workItem from="1745348635182" duration="6869000" />
-      <workItem from="1745373125106" duration="9086000" />
+      <workItem from="1745373125106" duration="9201000" />
+      <workItem from="1745420922220" duration="5372000" />
+      <workItem from="1745440393682" duration="13150000" />
     </task>
     <servers />
   </component>

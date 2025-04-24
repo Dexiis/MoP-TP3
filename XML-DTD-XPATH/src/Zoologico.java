@@ -24,7 +24,9 @@ public class Zoologico {
                     break;
                 case "2":
                     System.out.println("Qual é o nome do ficheiro que contem o seu zoo?");
-                    invalid = carregarZoo(input.nextLine());
+                    Object[] result = carregarZoo(input.nextLine());
+                    zoo = (Zoo) result[0];
+                    invalid = (Boolean) result[1];
                     break;
                 default:
                     System.out.println("Essa opção é inválida.");
@@ -696,17 +698,16 @@ public class Zoologico {
         }
     }
 
-    private static boolean salvarZoo() {
+    public static void salvarZoo() {
         Scanner input = new Scanner(System.in);
         System.out.println("Qual é o nome do ficheiro que quer guardar o Zoo?");
         ficheiro = input.nextLine() ;
         XMLBuilder.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
-        return false;
     }
 
-    private static boolean carregarZoo(String nomeDoFicheiro) {
+    public static Object[] carregarZoo(String nomeDoFicheiro) {
         ficheiro = nomeDoFicheiro;
-        return false;
+        return XMLBuilder.carregarZoo(ficheiro);
     }
 
     private static void encerrarPrograma() {
