@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/IAnimalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/IAnimalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/Tratador.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/Tratador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Alimentos/AlimentoSingleton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Alimentos/Carne.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Alimentos/Carne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Alimentos/Palha.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Alimentos/Palha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Alimentos/Peixe.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Alimentos/Peixe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/ZooSingleton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Zoologico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/ZooSingleton.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +64,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Zoologico.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rna&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bagui/Desktop/Pastas/Faculdade/GitHub/MoP-TP3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Zoologico.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/bagui/Desktop/Pastas/Faculdade/GitHub/MoP-TP3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bagui\Desktop\Pastas\Faculdade\GitHub\MoP-TP3\XML-DTD-XPATH\src" />
@@ -88,6 +98,14 @@
         <item itemvalue="Application.Zoologico" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -132,16 +150,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
     <option name="LAST_COMMIT_MESSAGE" value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java</url>
-          <line>201</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

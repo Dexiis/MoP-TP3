@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Zoologico {
-    static Zoo zoo = ZooSingleton.getZooInstance("", 0);
+    static Zoo zoo = Zoo.getZooInstance("", 0);
     static String ficheiro = "BaseDados";
 
     public static void main(String[] args) throws ClassNotFoundException {

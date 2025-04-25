@@ -2,18 +2,18 @@ import Alimentos.*;
 import Animais.*;
 import Funcionarios.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Classe que representa um Zoológico.
  */
-public class Zoo implements Serializable {
+public class Zoo {
+    private static Zoo instance = null;
     String name;
     int precario;
-    Carne carne = AlimentoSingleton.getCarneInstance(0);
-    Palha palha = AlimentoSingleton.getPalhaInstance(0);
-    Peixe peixe = AlimentoSingleton.getPeixeInstance(0);
+    Carne carne = Carne.getCarneInstance(0);
+    Palha palha = Palha.getPalhaInstance(0);
+    Peixe peixe = Peixe.getPeixeInstance(0);
     ArrayList<Animal> animais = new ArrayList<>();
     ArrayList<Funcionario> funcionarios = new ArrayList<>();
     ArrayList<Visitante> visitantes = new ArrayList<>();
@@ -24,9 +24,16 @@ public class Zoo implements Serializable {
      * @param name     Nome do zoológico
      * @param precario Preço de entrada do zoológico
      */
-    public Zoo(String name, int precario) {
+    private Zoo(String name, int precario) {
         this.name = name;
         this.precario = precario;
+    }
+
+    public static Zoo getZooInstance(String name, int precario) {
+        if (instance == null) {
+            instance = new Zoo(name, precario);
+        }
+        return instance;
     }
 
     /**

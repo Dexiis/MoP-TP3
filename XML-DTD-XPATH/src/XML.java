@@ -20,7 +20,6 @@ import javax.xml.transform.TransformerException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class XML {
@@ -199,7 +198,7 @@ public class XML {
             String nameZoo = zooElement.getAttribute("nome");
             int precarioZoo = Integer.parseInt(zooElement.getElementsByTagName("precario").item(0).getTextContent());
 
-            newZoo = ZooSingleton.getZooInstance(nameZoo, precarioZoo);
+            newZoo = Zoo.getZooInstance(nameZoo, precarioZoo);
 
             NodeList visitantesList = zooElement.getElementsByTagName("visitantes");
             if (visitantesList.getLength() > 0) {

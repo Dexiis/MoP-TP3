@@ -25,7 +25,7 @@ public class Zoologico {
                     String zooName = input.nextLine();
                     System.out.println("Qual será o preçario para o seu zoo:");
                     int zooPrecario = Integer.parseInt(input.nextLine());
-                    zoo = ZooSingleton.getZooInstance(zooName, zooPrecario);
+                    zoo = Zoo.getZooInstance(zooName, zooPrecario);
                     invalid = false;
                     break;
                 case "2":
