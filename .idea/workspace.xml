@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bagui\Desktop\Pastas\Faculdade\GitHub\MoP-TP3\XML-DTD-XPATH\src" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,6 +79,7 @@
       <workItem from="1745521781760" duration="8422000" />
       <workItem from="1745532194965" duration="401000" />
       <workItem from="1745534705513" duration="883000" />
+      <workItem from="1745536662012" duration="9349000" />
     </task>
     <servers />
   </component>
@@ -84,12 +90,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XMLBuilder.java</url>
-          <line>289</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XMLBuilder.java</url>
+          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java</url>
           <line>201</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
