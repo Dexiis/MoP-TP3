@@ -45,7 +45,7 @@ public class Zoologico {
             System.out.println("1 - Stock de alimentos.");
             System.out.println("2 - Animais.");
             System.out.println("3 - Funcionários/Visitantes.");
-            System.out.println("4 - Zoológico.");
+            System.out.println("4 - Ver Zoológico.");
             System.out.println("5 - Salvar o zoo.");
             System.out.println("6 - Terminar todas as operações e salvar o zoo.");
 
