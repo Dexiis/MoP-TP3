@@ -1,12 +1,10 @@
 package Funcionarios;
 
-import java.io.Serializable;
-
 /**
  * Classe que representa um guia do jardim zoológico.
  * Cada guia tem um nome, idade, identificação única e anos de experiência.
  */
-public class Guia extends Funcionario implements Serializable {
+public class Guia extends Funcionario {
 
     /**
      * Construtor da classe Guia.

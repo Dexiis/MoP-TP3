@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Cada tratador tem um nome, idade, identificação única e anos de experiência.
  */
 public class Tratador extends Funcionario implements IAnimalManager, java.io.Serializable {
-    private final ArrayList<Object> animais = new ArrayList<>();
+    private final ArrayList<Animal> animais = new ArrayList<>();
 
     /**
      * Construtor da classe Tratador.
@@ -28,30 +28,30 @@ public class Tratador extends Funcionario implements IAnimalManager, java.io.Ser
      *
      * @return A lista de animais associados ao tratador.
      */
-    public ArrayList<Object> getAnimaisAssociados() {
+    public ArrayList<Animal> getAnimaisAssociados() {
         return animais;
     }
 
     @Override
-    public void setAnimal(Object animal) {
+    public void setAnimal(Animal animal) {
         animais.add(animal);
     }
 
     @Override
-    public void removeAnimal(Object animal) {
+    public void removeAnimal(Animal animal) {
         animais.remove(animal);
     }
 
     @Override
     public boolean checkAnimalInTratador(String name) {
-        for (Object animal : animais) if (((Animal) animal).getName().equals(name)) return true;
+        for (Animal animal : animais) if (animal.getName().equals(name)) return true;
         return false;
     }
 
     @Override
     public void AnimaisAssociadosToString() {
-        for (Object animal : animais)
-            System.out.println("     O " + animal.getClass().getSimpleName() + " " + ((Animal) animal).getName() + " pertence a " + getName() + ".");
+        for (Animal animal : animais)
+            System.out.println("     O " + animal.getClass().getSimpleName() + " " + (animal.getName() + " pertence a " + getName() + "."));
     }
 }
 

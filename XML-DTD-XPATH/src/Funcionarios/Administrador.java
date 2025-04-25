@@ -1,12 +1,10 @@
 package Funcionarios;
 
-import java.io.Serializable;
-
 /**
  * Classe que representa um administrador do jardim zoológico.
  * Cada administrador tem um nome, idade, identificação única e anos de experiência.
  */
-public class Administrador extends Funcionario implements Serializable {
+public class Administrador extends Funcionario {
 
     /**
      * Construtor da classe Administrador.

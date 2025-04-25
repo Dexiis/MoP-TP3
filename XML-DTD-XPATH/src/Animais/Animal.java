@@ -1,9 +1,8 @@
 package Animais;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Animal implements Serializable {
+public abstract class Animal {
     private final String name;
     private int age;
     private int weight;

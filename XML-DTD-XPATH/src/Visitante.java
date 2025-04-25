@@ -1,10 +1,8 @@
-import java.io.Serializable;
-
 /**
  * Classe que representa um visitante do jardim zoológico.
  * Cada visitante tem um nome, idade e um número de identificação único (bilhete).
  */
-public class Visitante implements Serializable {
+public class Visitante {
     private final String name;
     private final int age;
     private final int ID;

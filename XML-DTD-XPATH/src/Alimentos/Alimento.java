@@ -1,8 +1,6 @@
 package Alimentos;
 
-import java.io.Serializable;
-
-public abstract class Alimento implements Serializable {
+public abstract class Alimento {
     private int quantidade;
 
     /**
@@ -10,7 +8,7 @@ public abstract class Alimento implements Serializable {
      *
      * @param quantidade Quantidade inicial de alimentos em quilogramas.
      */
-    public Alimento(int quantidade) {
+    protected Alimento(int quantidade) {
         this.quantidade = quantidade;
     }
 

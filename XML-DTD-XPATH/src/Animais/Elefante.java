@@ -1,11 +1,9 @@
 package Animais;
 
-import java.io.Serializable;
-
 /**
  * Representa um elefante com nome, idade e weight.
  */
-public class Elefante extends Animal implements Serializable {
+public class Elefante extends Animal {
 
     /**
      * Construtor da classe Elefante.

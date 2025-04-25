@@ -135,7 +135,7 @@ public class XML {
                 novoFuncionario.appendChild(funcionarioExperience);
 
                 if (funcionario instanceof Tratador)
-                    for (Object animal : ((Tratador) funcionario).getAnimaisAssociados()) {
+                    for (Animal animal : ((Tratador) funcionario).getAnimaisAssociados()) {
                         Element funcionarioAnimalAssociated = documentZoo.createElement("animal_associated");
                         funcionarioAnimalAssociated.appendChild(documentZoo.createTextNode(animal.toString()));
                         novoFuncionario.appendChild(funcionarioAnimalAssociated);

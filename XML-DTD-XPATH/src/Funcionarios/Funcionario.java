@@ -1,6 +1,5 @@
 package Funcionarios;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,7 +7,7 @@ import java.util.Objects;
  * Cada funcionário tem um nome, idade, identificação única e anos de experiência.
  */
 
-public class Funcionario implements Serializable {
+public class Funcionario {
     private final String name;
     private int age;
     private final int ID;

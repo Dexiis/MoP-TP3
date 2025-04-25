@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/IAnimalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/IAnimalManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/Tratador.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Funcionarios/Tratador.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +21,27 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rnaguiar&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dexiis/MoP-TP3.git&quot;,
+    &quot;accountId&quot;: &quot;a00ff1f7-8b7f-4dcd-af02-42d8c378f963&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -39,7 +59,7 @@
     &quot;Application.Zoologico.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rna&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/bagui/Desktop/Pastas/Faculdade/GitHub/MoP-TP3&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -55,13 +75,19 @@
       <recent name="C:\Users\bagui\Desktop\Pastas\Faculdade\GitHub\MoP-TP3\XML-DTD-XPATH\src" />
     </key>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
-      </set>
-    </attachedChunks>
+  <component name="RunManager">
+    <configuration name="Zoologico" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zoologico" />
+      <module name="XML-DTD-XPATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Zoologico" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -81,10 +107,31 @@
       <workItem from="1745534705513" duration="883000" />
       <workItem from="1745536662012" duration="9349000" />
     </task>
+    <task id="LOCAL-00001" summary="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
+      <option name="closed" value="true" />
+      <created>1745581497077</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745581497077</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
+      <option name="closed" value="true" />
+      <created>1745582090083</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745582090083</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

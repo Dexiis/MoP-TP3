@@ -1,5 +1,7 @@
 package Funcionarios;
 
+import Animais.Animal;
+
 public interface IAnimalManager {
 
     /**
@@ -7,14 +9,14 @@ public interface IAnimalManager {
      *
      * @param animal Objeto do animal a ser adicionado.
      */
-    void setAnimal(Object animal);
+    void setAnimal(Animal animal);
 
     /**
      * Remove um animal da lista de animais sob responsabilidade do tratador.
      *
      * @param animal Objeto do animal a ser removido.
      */
-    void removeAnimal(Object animal);
+    void removeAnimal(Animal animal);
 
     /**
      * Verifica se um animal específico está associado ao tratador.
@@ -25,7 +27,7 @@ public interface IAnimalManager {
     boolean checkAnimalInTratador(String name);
 
     /**
-     * Escreve todos os animais associados ao Funcionarios.Tratador.
+     * Escreve todos os animais associados ao Tratador.
      */
     void AnimaisAssociadosToString();
 }

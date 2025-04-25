@@ -1,11 +1,9 @@
 package Animais;
 
-import java.io.Serializable;
-
 /**
  * Representa uma girafa com nome, idade e peso.
  */
-public class Girafa extends Animal implements Serializable {
+public class Girafa extends Animal {
 
     /**
      * Construtor da classe Girafa.
