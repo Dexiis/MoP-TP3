@@ -15,7 +15,7 @@ public class Zoologico {
             switch (input.nextLine()) {
                 case "1":
                     System.out.println("Pretende começar com um zoo predefinido? (Escreva 'n' para um zoo sem nada)");
-                    if (!input.nextLine().equals("n")){
+                    if (!input.nextLine().equals("n")) {
                         Object[] result = carregarZoo("ZooPredefinido");
                         zoo = (Zoo) result[0];
                         invalid = (Boolean) result[1];
@@ -46,16 +46,18 @@ public class Zoologico {
             System.out.println("2 - Animais.");
             System.out.println("3 - Funcionários/Visitantes.");
             System.out.println("4 - Ver Zoológico.");
-            System.out.println("5 - Salvar o zoo.");
-            System.out.println("6 - Terminar todas as operações e salvar o zoo.");
+            System.out.println("5 - Ver outros zoológicos.");
+            System.out.println("6 - Salvar o zoo.");
+            System.out.println("7 - Terminar todas as operações e salvar o zoo.");
 
             switch (input.nextLine()) {
                 case "1" -> listaRequerida(1);
                 case "2" -> listaRequerida(2);
                 case "3" -> listaRequerida(3);
                 case "4" -> listaRequerida(4);
-                case "5" -> salvarZoo();
-                case "6" -> encerrarPrograma();
+                case "5" -> otherZooPOV();
+                case "6" -> salvarZoo();
+                case "7" -> encerrarPrograma();
                 default -> System.out.println("Essa opção não é válida.");
             }
         }
@@ -81,6 +83,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 2) {
             System.out.println("1 - Leões");
             System.out.println("2 - Elefantes");
@@ -99,6 +102,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 3) {
             System.out.println("1 - Tratadores");
             System.out.println("2 - Administradores");
@@ -117,6 +121,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 4) {
             System.out.println("1 - Zoo inteiro.");
             System.out.println("2 - Animais de certa dieta.");
@@ -135,7 +140,6 @@ public class Zoologico {
                 }
             }
         }
-
     }
 
     public static void lista2Requerida(int requerimento) {
@@ -145,7 +149,6 @@ public class Zoologico {
         int age;
         int peso;
         int experience;
-
 
         boolean invalid = true;
         if (requerimento == 1) {
@@ -174,6 +177,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 2) {
             while (invalid) {
                 invalid = false;
@@ -200,6 +204,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 3) {
             while (invalid) {
                 invalid = false;
@@ -226,6 +231,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 4) {
             while (invalid) {
                 invalid = false;
@@ -270,6 +276,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 5) {
             while (invalid) {
                 invalid = false;
@@ -315,6 +322,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 6) {
             while (invalid) {
                 invalid = false;
@@ -361,6 +369,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 7) {
             while (invalid) {
                 invalid = false;
@@ -407,6 +416,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 8) {
             while (invalid) {
                 invalid = false;
@@ -467,6 +477,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 9) {
             while (invalid) {
                 invalid = false;
@@ -516,6 +527,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 10) {
             while (invalid) {
                 invalid = false;
@@ -564,6 +576,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 11) {
             while (invalid) {
                 invalid = false;
@@ -613,6 +626,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 13) {
             while (invalid) {
                 invalid = false;
@@ -628,6 +642,7 @@ public class Zoologico {
                 }
             }
         }
+
         if (requerimento == 14) {
             System.out.println("Qual é a idade minima dos animais que deseja visualizar?");
             zoo.printAnimais(Integer.parseInt(input.nextLine()));
@@ -646,6 +661,7 @@ public class Zoologico {
         zoo.printAnimais("Elefantes");
         zoo.printAnimais("Girafas");
         zoo.printAnimais("Pinguins");
+
         if (requerimento == 1) {
             while (invalid) {
                 invalid = false;
@@ -658,6 +674,7 @@ public class Zoologico {
 
             }
         }
+
         if (requerimento == 2) {
             while (invalid) {
                 invalid = false;
@@ -669,6 +686,7 @@ public class Zoologico {
                 else InvalidText();
             }
         }
+
         if (requerimento == 3) {
             while (invalid) {
                 invalid = false;
@@ -683,14 +701,214 @@ public class Zoologico {
         }
     }
 
-    public static void salvarZoo() {
+    private static void otherZooPOV() {
+        Scanner input = new Scanner(System.in);
+        boolean mode = true;
+        System.out.println("Escreva o nome do ficheiro que deseja visualizar.");
+        String otherZooFile = input.nextLine();
+        if (otherZooFile.equals(ficheiro)) {
+            System.out.println("Esse é o mesmo ficheiro que tem em aberto!");
+            mode = false;
+        }
+        while (mode) {
+            System.out.println("Escolha uma opção.");
+            System.out.println("1 - Ver o Zoo inteiro.");
+            System.out.println("2 - Procurar por entidades.");
+            System.out.println("3 - Procurar por caracteristica nas entidades.");
+            System.out.println("4 - Procurar pela quantidade da entidade.");
+            System.out.println("5 - Voltar ao Zoo principal.");
+            switch (input.nextLine()) {
+                case "1" -> XPATH.printWholeZoo(otherZooFile);
+                case "2" -> OZPRequiredList(otherZooFile, 1);
+                case "3" -> OZPRequiredList(otherZooFile, 2);
+                case "4" -> OZPRequiredList(otherZooFile, 3);
+                case "5" -> mode = false;
+                default -> System.out.println("Essa opção não foi encontrada.");
+            }
+        }
+    }
+
+    private static void OZPRequiredList(String otherZooFile, int requirement) {
+        Scanner input = new Scanner(System.in);
+        if (requirement == 1) {
+            System.out.println("Qual é a entidade que deseja procurar?");
+            System.out.println("1 - Leões");
+            System.out.println("2 - Elefantes");
+            System.out.println("3 - Girafas");
+            System.out.println("4 - Pinguins");
+            System.out.println("5 - Tratadores");
+            System.out.println("6 - Administradores");
+            System.out.println("7 - Guias");
+            System.out.println("8 - Visitantes");
+            System.out.println("9 - Animais");
+            System.out.println("10 - Funcionarios");
+            switch (input.nextLine()) {
+                case "1" -> XPATH.lookingForEntityList("leao", otherZooFile);
+                case "2" -> XPATH.lookingForEntityList("elefante", otherZooFile);
+                case "3" -> XPATH.lookingForEntityList("girafa", otherZooFile);
+                case "4" -> XPATH.lookingForEntityList("pinguim", otherZooFile);
+                case "5" -> XPATH.lookingForEntityList("tratador", otherZooFile);
+                case "6" -> XPATH.lookingForEntityList("administrador", otherZooFile);
+                case "7" -> XPATH.lookingForEntityList("guias", otherZooFile);
+                case "8" -> XPATH.lookingForEntityList("visitante", otherZooFile);
+                case "9" -> XPATH.lookingForEntityList("animais", otherZooFile);
+                case "10" -> XPATH.lookingForEntityList("funcionarios", otherZooFile);
+                default -> System.out.println("Essa opção não foi encontrada.");
+            }
+        }
+
+        if (requirement == 2) {
+            System.out.println("Qual é a entidade que deseja procurar?");
+            System.out.println("1 - Leões");
+            System.out.println("2 - Elefantes");
+            System.out.println("3 - Girafas");
+            System.out.println("4 - Pinguins");
+            System.out.println("5 - Tratadores");
+            System.out.println("6 - Administradores");
+            System.out.println("7 - Guias");
+            System.out.println("8 - Visitantes");
+            System.out.println("9 - Animais");
+            System.out.println("10 - Funcionarios");
+            switch (input.nextLine()) {
+                case "1" -> OZPRequiredList2("leao", otherZooFile);
+                case "2" -> OZPRequiredList2("elefante", otherZooFile);
+                case "3" -> OZPRequiredList2("girafa", otherZooFile);
+                case "4" -> OZPRequiredList2("pinguim", otherZooFile);
+                case "5" -> OZPRequiredList2("tratador", otherZooFile);
+                case "6" -> OZPRequiredList2("administrador", otherZooFile);
+                case "7" -> OZPRequiredList2("guias", otherZooFile);
+                case "8" -> OZPRequiredList2("visitante", otherZooFile);
+                case "9" -> OZPRequiredList2("animais", otherZooFile);
+                case "10" -> OZPRequiredList2("funcionarios", otherZooFile);
+                default -> System.out.println("Essa opção não foi encontrada.");
+            }
+        }
+        if (requirement == 3) {
+            System.out.println("Qual é a entidade que deseja procurar?");
+            System.out.println("1 - Leões");
+            System.out.println("2 - Elefantes");
+            System.out.println("3 - Girafas");
+            System.out.println("4 - Pinguins");
+            System.out.println("5 - Tratadores");
+            System.out.println("6 - Administradores");
+            System.out.println("7 - Guias");
+            System.out.println("8 - Visitantes");
+            System.out.println("9 - Animais");
+            System.out.println("10 - Funcionarios");
+            switch (input.nextLine()) {
+                case "1" -> XPATH.lookingForNumber("leao", otherZooFile);
+                case "2" -> XPATH.lookingForNumber("elefante", otherZooFile);
+                case "3" -> XPATH.lookingForNumber("girafa", otherZooFile);
+                case "4" -> XPATH.lookingForNumber("pinguim", otherZooFile);
+                case "5" -> XPATH.lookingForNumber("tratador", otherZooFile);
+                case "6" -> XPATH.lookingForNumber("administrador", otherZooFile);
+                case "7" -> XPATH.lookingForNumber("guia", otherZooFile);
+                case "8" -> XPATH.lookingForNumber("visitante", otherZooFile);
+                case "9" -> XPATH.lookingForNumber("animais", otherZooFile);
+                case "10" -> XPATH.lookingForNumber("funcionarios", otherZooFile);
+                default -> System.out.println("Essa opção não foi encontrada.");
+            }
+        }
+    }
+
+    private static void OZPRequiredList2(String entity, String otherZooFile) {
+        Scanner input = new Scanner(System.in);
+        if (entity.equals("leao") | entity.equals("elefante") | entity.equals("girafa") | entity.equals("pinguim") | entity.equals("animais")) {
+            System.out.println("Qual é a caracteristica que deseja procurar?");
+            System.out.println("1 - Nome");
+            System.out.println("2 - Idade");
+            System.out.println("3 - Peso");
+            System.out.println("4 - Dieta");
+            System.out.println("5 - Tipo");
+            switch (input.nextLine()) {
+                case "1":
+                    System.out.println("Qual é o nome que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
+                    break;
+                case "2":
+                    System.out.println("Qual é a idade que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
+                    break;
+                case "3":
+                    System.out.println("Qual é o peso que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "weight", input.nextLine(), otherZooFile);
+                    break;
+                case "4":
+                    System.out.println("Qual é a deita que deseja procurar?\n (Carnivoro ou Herbivero)");
+                    XPATH.lookingForCharacteristic(entity, "diet", input.nextLine(), otherZooFile);
+                    break;
+                case "5":
+                    System.out.println("Qual é o tipo que deseja procurar? (Mamífero ou Ave)");
+                    XPATH.lookingForCharacteristic(entity, "type", input.nextLine(), otherZooFile);
+                    break;
+                default:
+                    System.out.println("Essa opção não foi encontrada.");
+                    break;
+            }
+        }
+
+        if (entity.equals("tratador") | entity.equals("guia") | entity.equals("administrador") | entity.equals("funcionarios")) {
+            System.out.println("Qual é a caracteristica que deseja procurar?");
+            System.out.println("1 - Nome");
+            System.out.println("2 - Idade");
+            System.out.println("3 - ID");
+            System.out.println("4 - Experiencia");
+            switch (input.nextLine()) {
+                case "1":
+                    System.out.println("Qual é o nome que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
+                    break;
+                case "2":
+                    System.out.println("Qual é a idade que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
+                    break;
+                case "3":
+                    System.out.println("Qual é o peso que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "ID", input.nextLine(), otherZooFile);
+                    break;
+                case "4":
+                    System.out.println("Qual é a deita que deseja procurar?\n (Carnivoro ou Herbivero)");
+                    XPATH.lookingForCharacteristic(entity, "experience", input.nextLine(), otherZooFile);
+                    break;
+                default:
+                    System.out.println("Essa opção não foi encontrada.");
+                    break;
+            }
+        }
+
+        if (entity.equals("visitante")) {
+            System.out.println("Qual é a caracteristica que deseja procurar?");
+            System.out.println("1 - Nome");
+            System.out.println("2 - Idade");
+            System.out.println("3 - ID");
+            switch (input.nextLine()) {
+                case "1":
+                    System.out.println("Qual é o nome que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
+                    break;
+                case "2":
+                    System.out.println("Qual é a idade que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
+                    break;
+                case "3":
+                    System.out.println("Qual é o peso que deseja procurar?");
+                    XPATH.lookingForCharacteristic(entity, "ID", input.nextLine(), otherZooFile);
+                    break;
+                default:
+                    System.out.println("Essa opção não foi encontrada.");
+                    break;
+            }
+        }
+    }
+
+    private static void salvarZoo() {
         Scanner input = new Scanner(System.in);
         System.out.println("Qual é o nome do ficheiro que quer guardar o Zoo?");
-        ficheiro = input.nextLine() ;
+        ficheiro = input.nextLine();
         XML.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
     }
 
-    public static Object[] carregarZoo(String nomeDoFicheiro) {
+    private static Object[] carregarZoo(String nomeDoFicheiro) {
         ficheiro = nomeDoFicheiro;
         return XML.carregarZoo(ficheiro);
     }

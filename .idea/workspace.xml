@@ -7,6 +7,7 @@
     <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,5 +141,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
     <option name="LAST_COMMIT_MESSAGE" value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

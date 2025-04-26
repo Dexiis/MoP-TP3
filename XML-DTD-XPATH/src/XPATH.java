@@ -1,7 +1,4 @@
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,44 +14,161 @@ import java.io.File;
 import java.io.IOException;
 
 public class XPATH {
-    private void lookingForEmployeList(String entity, String ficheiro) {
-        Document document;
+    public static void lookingForEntityList(String entity, String ficheiro) {
         try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("XML/" + ficheiro + ".xml"));
+            NodeList entityNodes = pathFinder(entity, ficheiro);
 
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-            XPath xpath = xpathFactory.newXPath();
-            String expression = getExpression(entity);
-
-            NodeList tratadorNodes = (NodeList) xpath.evaluate(expression, document, XPathConstants.NODESET);
-
-            if (tratadorNodes.getLength() == 0) {
-                System.out.println("Nenhum tratador encontrado no XML.");
+            if (entityNodes.getLength() == 0) {
+                System.out.println("Nenhuma entidade encontrada no XML.");
             } else {
-                for (int i = 0; i < tratadorNodes.getLength(); i++) {
-                    Node node = tratadorNodes.item(i);
-                    Element tratadorElement = (Element) node;
-
-                    String idTratador = tratadorElement.getAttribute("ID");
-                    String nameTratador = tratadorElement.getElementsByTagName("name").item(0).getTextContent();
-                    String ageTratador = tratadorElement.getElementsByTagName("age").item(0).getTextContent();
-                    String experienceTratador = tratadorElement.getElementsByTagName("experience").item(0).getTextContent();
-
-                    System.out.println("ID: " + idTratador + ", Nome: " + nameTratador + ", Idade: " + ageTratador + ", Experiência: " + experienceTratador);
-
-                    NodeList associatedAnimals = tratadorElement.getElementsByTagName("animal_associated");
-                    if (associatedAnimals.getLength() > 0) {
-                        System.out.println("  Animais Associados:");
-                        for (int j = 0; j < associatedAnimals.getLength(); j++) {
-                            System.out.println("    - " + tratadorElement.getElementsByTagName("experience").item(j).getTextContent());
+                for (int i = 0; i < entityNodes.getLength(); i++) {
+                    Node entityNode = entityNodes.item(i);
+                    Element entityElement = (Element) entityNode;
+                    if (entity.equals("animais") || entity.equals("funcionarios")) {
+                        for (int j = 0; j < entityElement.getChildNodes().getLength(); j++) {
+                            if (entityElement.getChildNodes().item(j).getNodeType() == Node.ELEMENT_NODE) {
+                                Element newEntityElement = (Element) entityElement.getChildNodes().item(j);
+                                printEntities(newEntityElement, j);
+                            }
                         }
+                    } else {
+                        printEntities(entityElement, 0);
                     }
                 }
             }
         } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
             System.err.println("Erro ao tentar obter os dados do XML.");
+        }
+    }
+
+    public static void lookingForCharacteristic(String entity, String attribute, String attributeRequired, String ficheiro) {
+        try {
+            NodeList entityNodes = pathFinder(entity, ficheiro);
+            if (entityNodes.getLength() == 0) {
+                System.out.println("Nenhuma entidade encontrada no XML.");
+            } else {
+                for (int i = 0; i < entityNodes.getLength(); i++) {
+                    Node entityNode = entityNodes.item(i);
+                    Element entityElement = (Element) entityNode;
+
+                    if (entityElement.getElementsByTagName(attribute).item(0).getTextContent().equals(attributeRequired)) {
+                        if (entity.equals("animais") || entity.equals("funcionarios")) {
+                            for (int j = 0; j < entityElement.getChildNodes().item(j).getChildNodes().getLength(); j++) {
+                                printEntities(entityElement, j);
+                            }
+                        } else {
+                            printEntities(entityElement, 0);
+                        }
+                    }
+                }
+            }
+        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException |
+                 NullPointerException e) {
+            e.printStackTrace();
+            System.err.println("Erro ao tentar obter os dados do XML.");
+        }
+    }
+
+    public static void lookingForNumber(String entity, String ficheiro) {
+        int counter = 0;
+        int animaisCounter = 0;
+        String newEntity = entity;
+        try {
+            if (entity.equals("animais")) newEntity = "leao";
+            else if (entity.equals("funcionarios")) newEntity = "tratador";
+            NodeList entityNodes = pathFinder(newEntity, ficheiro);
+            Element entityElement = (Element) entityNodes.item(0);
+
+            if (entityNodes.getLength() == 0) {
+                System.out.println("Nenhuma entidade encontrada no XML.");
+            } else {
+                if (entity.equals("visitante")) {
+                    for (int i = 0; i < entityNodes.getLength(); i++) {
+                        counter++;
+                    }
+                    System.out.println("Existe " + counter + " visitantes encontrados.");
+                } else {
+                    for (int i = 0; i < entityElement.getParentNode().getParentNode().getChildNodes().getLength(); i++)
+                        for (int j = 0; j < entityElement.getParentNode().getParentNode().getChildNodes().item(i).getChildNodes().getLength(); j++)
+                            if (entityElement.getParentNode().getParentNode().getChildNodes().item(i).getChildNodes().item(j).getNodeType() == Node.ELEMENT_NODE) {
+                                animaisCounter++;
+                            }
+                    for (int i = 0; i < entityElement.getParentNode().getChildNodes().getLength(); i++)
+                        if (entityElement.getParentNode().getChildNodes().item(i).getNodeType() == Node.ELEMENT_NODE) {
+                            counter++;
+                        }
+                    if (entity.equals("animais") | entity.equals("funcionarios"))
+                        System.out.println("Existe " + animaisCounter + " " + entityElement.getParentNode().getParentNode().getNodeName() + " dentro do zoo.");
+                    else
+                        System.out.println("Existe " + animaisCounter + " " + entityElement.getParentNode().getParentNode().getNodeName() + " dentro do zoo dos quais " + counter + " são " + entityElement.getNodeName() + ".");
+                }
+            }
+
+        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
+            System.err.println("Erro ao tentar obter os dados do XML.");
+        }
+    }
+
+    public static void printWholeZoo(String ficheiro) {
+        try {
+            String[] entities = {"leao", "elefante", "girafa", "pinguim", "tratador", "administrador", "guia", "visitante"};
+            for (String entity : entities) {
+                NodeList entityNodes = pathFinder(entity, ficheiro);
+                if (entityNodes.getLength() > 0) {
+                    for (int i = 0; i < entityNodes.getLength(); i++) {
+                        Element entityElement = (Element) entityNodes.item(i);
+                        printEntities(entityElement, 0);
+                    }
+                }
+            }
+        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
+            System.out.println("Erro ao printar o Zoológico!");
+        }
+    }
+
+    private static void printEntities(Element entityElement, int index) {
+        switch (entityElement.getNodeName().trim()) {
+            case "animais":
+                entityElement = (Element) entityElement.getChildNodes().item(index).getChildNodes();
+            case "leao":
+            case "elefante":
+            case "girafa":
+            case "pinguim":
+                String nameAnimal = entityElement.getAttribute("name");
+                String ageAnimal = entityElement.getElementsByTagName("age").item(0).getTextContent();
+                String weightAnimal = entityElement.getElementsByTagName("weight").item(0).getTextContent();
+                String dietAnimal = entityElement.getElementsByTagName("diet").item(0).getTextContent();
+                String typeAnimal = entityElement.getElementsByTagName("type").item(0).getTextContent();
+
+                System.out.println(entityElement.getNodeName().trim() + " --> Nome: " + nameAnimal + ", Idade: " + ageAnimal + ", Peso: " + weightAnimal + ", Dietia: " + dietAnimal + ", Tipo: " + typeAnimal);
+                break;
+            case "funcionarios":
+                entityElement = (Element) entityElement.getChildNodes().item(index).getChildNodes();
+            case "tratador":
+            case "guia":
+            case "administrador":
+                String idEmployee = entityElement.getAttribute("ID");
+                String nameEmployee = entityElement.getElementsByTagName("name").item(0).getTextContent();
+                String ageEmployee = entityElement.getElementsByTagName("age").item(0).getTextContent();
+                String experienceEmployee = entityElement.getElementsByTagName("experience").item(0).getTextContent();
+
+                System.out.println(entityElement.getNodeName().trim() + " --> ID: " + idEmployee + ", Nome: " + nameEmployee + ", Idade: " + ageEmployee + ", Experiência: " + experienceEmployee);
+
+                NodeList associatedAnimals = entityElement.getElementsByTagName("animal_associated");
+                if (associatedAnimals.getLength() > 0) {
+                    System.out.println("  Animais Associados:");
+                    for (int j = 0; j < associatedAnimals.getLength(); j++) {
+                        System.out.println("    - " + entityElement.getElementsByTagName("animal_associated").item(j).getTextContent().trim());
+                    }
+                }
+                break;
+            case "visitante":
+                String idVisitante = entityElement.getAttribute("ID");
+                String nameVisitante = entityElement.getElementsByTagName("name").item(0).getTextContent();
+                String ageVisitante = entityElement.getElementsByTagName("age").item(0).getTextContent();
+
+                System.out.println(entityElement.getNodeName().trim() + " --> ID: " + idVisitante + ", Nome: " + nameVisitante + ", Idade: " + ageVisitante);
+                break;
         }
     }
 
@@ -68,158 +182,24 @@ public class XPATH {
             case "tratador" -> expression = "/zoo/funcionarios/tratadores/tratador";
             case "administrador" -> expression = "/zoo/funcionarios/administradores/administrador";
             case "guia" -> expression = "/zoo/funcionarios/guias/guia";
+            case "visitante" -> expression = "/zoo/visitantes/visitante";
+            case "animais" -> expression = "/zoo/animais/*";
+            case "funcionarios" -> expression = "/zoo/funcionarios/*";
             default -> expression = null;
         }
         return expression;
     }
 
-    private void lookingForAnimalCharacteristic(String attribute, String attributeRequired, String ficheiro) {
+    private static NodeList pathFinder(String entity, String ficheiro) throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
         Document document;
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("XML/" + ficheiro + ".xml"));
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        document = builder.parse(new File("XML/" + ficheiro + ".xml"));
 
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-            XPath xpath = xpathFactory.newXPath();
-            String[] animals = {"leos/leao", "elefantes/elefante", "girafas/girafa", "pinguins/pinguim"};
+        XPathFactory xpathFactory = XPathFactory.newInstance();
+        XPath xpath = xpathFactory.newXPath();
+        String expression = getExpression(entity);
 
-
-            for (String expression : animals) {
-                NodeList animalsNodes = (NodeList) xpath.evaluate("/zoo/animais/" + expression, document, XPathConstants.NODESET);
-
-                if (animalsNodes.getLength() != 0) {
-                    for (int i = 0; i < animalsNodes.getLength(); i++) {
-                        Node node = animalsNodes.item(i);
-                        Element animalElement = (Element) node;
-                        if (animalElement.getElementsByTagName(attribute).item(0).getTextContent().equals(attributeRequired)) {
-                            String nameAnimal = animalElement.getAttribute("name");
-                            String ageAnimal = animalElement.getElementsByTagName("age").item(0).getTextContent();
-                            String weightAnimal = animalElement.getElementsByTagName("weight").item(0).getTextContent();
-                            String dietAnimal = animalElement.getElementsByTagName("diet").item(0).getTextContent();
-                            String typeAnimal = animalElement.getElementsByTagName("type").item(0).getTextContent();
-
-                            System.out.println("Nome: " + nameAnimal + ", Idade: " + ageAnimal + ", Peso: " + weightAnimal + ", Dieta: " + dietAnimal + ", Tipo: " + typeAnimal);
-                        }
-                    }
-                }
-            }
-        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
-            System.err.println("Erro ao tentar obter os dados do XML.");
-        }
-    }
-
-    private void lookingForEmployesCharacteristic(String attribute, String attributeRequired, String ficheiro) {
-        Document document;
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("XML/" + ficheiro + ".xml"));
-
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-            XPath xpath = xpathFactory.newXPath();
-            String[] employes = {"tratadores/tratador", "administradores/administrador", "guias/guia"};
-
-
-            for (String expression : employes) {
-                NodeList employesNodes = (NodeList) xpath.evaluate("/zoo/animais/" + expression, document, XPathConstants.NODESET);
-
-                if (employesNodes.getLength() != 0) {
-                    for (int i = 0; i < employesNodes.getLength(); i++) {
-                        Node node = employesNodes.item(i);
-                        Element employeElement = (Element) node;
-                        if (employeElement.getElementsByTagName(attribute).item(0).getTextContent().equals(attributeRequired)) {
-                            String nameEmploye = employeElement.getElementsByTagName("name").item(0).getTextContent();
-                            String ageEmploye = employeElement.getElementsByTagName("age").item(0).getTextContent();
-                            String idEmploye = employeElement.getAttribute("ID");
-                            String experienceEmploye = employeElement.getElementsByTagName("experience").item(0).getTextContent();
-
-                            System.out.println("Nome: " + nameEmploye + ", Idade: " + ageEmploye + ", ID: " + idEmploye + ", Experience: " + experienceEmploye);
-
-                            NodeList associatedAnimals = employeElement.getElementsByTagName("animal_associated");
-                            if (associatedAnimals.getLength() > 0) {
-                                System.out.println("  Animais Associados:");
-                                for (int j = 0; j < associatedAnimals.getLength(); j++) {
-                                    System.out.println("    - " + employeElement.getElementsByTagName("experience").item(j).getTextContent());
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
-            System.err.println("Erro ao tentar obter os dados do XML.");
-        }
-    }
-
-    private void lookingForVisitantesCharacteristic(String attribute, String attributeRequired, String ficheiro) {
-        Document document;
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("XML/" + ficheiro + ".xml"));
-
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-            XPath xpath = xpathFactory.newXPath();
-            NodeList visitantesNodes = (NodeList) xpath.evaluate("/zoo/visitantes/visitante", document, XPathConstants.NODESET);
-
-            if (visitantesNodes.getLength() != 0) {
-                for (int i = 0; i < visitantesNodes.getLength(); i++) {
-                    Node node = visitantesNodes.item(i);
-                    Element visitanteElement = (Element) node;
-                    if (visitanteElement.getElementsByTagName(attribute).item(0).getTextContent().equals(attributeRequired)) {
-                        String nameVisitante = visitanteElement.getElementsByTagName("name").item(0).getTextContent();
-                        String ageVisitante = visitanteElement.getElementsByTagName("age").item(0).getTextContent();
-                        String idVisitante = visitanteElement.getAttribute("ID");
-
-                        System.out.println("Nome: " + nameVisitante + ", Idade: " + ageVisitante + ", ID: " + idVisitante);
-                    }
-                }
-            }
-
-        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
-            System.err.println("Erro ao tentar obter os dados do XML.");
-        }
-    }
-
-    private void lookingForNumber(String entity, String ficheiro) {
-        Document document;
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(new File("XML/" + ficheiro + ".xml"));
-
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-            XPath xpath = xpathFactory.newXPath();
-            String expression = getExpression(entity);
-
-            NodeList tratadorNodes = (NodeList) xpath.evaluate(expression, document, XPathConstants.NODESET);
-
-            if (tratadorNodes.getLength() == 0) {
-                System.out.println("Nenhum tratador encontrado no XML.");
-            } else {
-                for (int i = 0; i < tratadorNodes.getLength(); i++) {
-                    Node node = tratadorNodes.item(i);
-                    Element tratadorElement = (Element) node;
-
-                    String idTratador = tratadorElement.getAttribute("ID");
-                    String nameTratador = tratadorElement.getElementsByTagName("name").item(0).getTextContent();
-                    String ageTratador = tratadorElement.getElementsByTagName("age").item(0).getTextContent();
-                    String experienceTratador = tratadorElement.getElementsByTagName("experience").item(0).getTextContent();
-
-                    System.out.println("ID: " + idTratador + ", Nome: " + nameTratador + ", Idade: " + ageTratador + ", Experiência: " + experienceTratador);
-
-                    NodeList associatedAnimals = tratadorElement.getElementsByTagName("animal_associated");
-                    if (associatedAnimals.getLength() > 0) {
-                        System.out.println("  Animais Associados:");
-                        for (int j = 0; j < associatedAnimals.getLength(); j++) {
-                            System.out.println("    - " + tratadorElement.getElementsByTagName("experience").item(j).getTextContent());
-                        }
-                    }
-                }
-            }
-        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
-            System.err.println("Erro ao tentar obter os dados do XML.");
-        }
+        return (NodeList) xpath.evaluate(expression, document, XPathConstants.NODESET);
     }
 }
