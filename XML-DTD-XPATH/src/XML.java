@@ -166,7 +166,6 @@ public class XML {
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
                 transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "BaseDados.dtd");
 
                 DOMSource source = new DOMSource(documentZoo);
@@ -240,14 +239,11 @@ public class XML {
                                 int ageAnimal = Integer.parseInt(animalElement.getElementsByTagName("age").item(0).getTextContent());
                                 int weightAnimal = Integer.parseInt(animalElement.getElementsByTagName("weight").item(0).getTextContent());
 
-                                if (animalType.equals("Leao")) {
-                                    newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "leão");
-                                } else if (animalType.equals("Elefante")) {
-                                    newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "elefante");
-                                } else if (animalType.equals("Girafa")) {
-                                    newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "girafa");
-                                } else if (animalType.equals("Pinguim")) {
-                                    newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "pinguim");
+                                switch (animalType) {
+                                    case "Leao" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "leão");
+                                    case "Elefante" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "elefante");
+                                    case "Girafa" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "girafa");
+                                    case "Pinguim" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "pinguim");
                                 }
                             }
                         }
@@ -279,16 +275,16 @@ public class XML {
                                 int idFuncionario = Integer.parseInt(funcionarioElement.getAttribute("ID"));
                                 int experienceTratador = Integer.parseInt(funcionarioElement.getElementsByTagName("experience").item(0).getTextContent());
 
-                                if (funcionarioType.equals("Administrador")) {
-                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "administrador");
-                                } else if (funcionarioType.equals("Tratador")) {
-                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "tratador");
-                                    for (int j = 0; j < funcionarioElement.getElementsByTagName("animal_associated").getLength(); j++) {
-                                        String[] words = funcionarioElement.getElementsByTagName("animal_associated").item(j).getTextContent().split(" ");
-                                        newZoo.setAnimalTratador(idFuncionario, words[2]);
+                                switch (funcionarioType) {
+                                    case "Administrador" -> newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "administrador");
+                                    case "Tratador" -> {
+                                        newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "tratador");
+                                        for (int j = 0; j < funcionarioElement.getElementsByTagName("animal_associated").getLength(); j++) {
+                                            String[] words = funcionarioElement.getElementsByTagName("animal_associated").item(j).getTextContent().split(" ");
+                                            newZoo.setAnimalTratador(idFuncionario, words[2]);
+                                        }
                                     }
-                                } else if (funcionarioType.equals("Guia")) {
-                                    newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "guia");
+                                    case "Guia" -> newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "guia");
                                 }
                             }
                         }
