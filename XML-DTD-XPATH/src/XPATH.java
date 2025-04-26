@@ -13,6 +13,10 @@ import javax.xml.xpath.XPathExpressionException;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Classe que trabalha com tudo relacionado ao XPATH
+ * Encarregada de procurar caracteristicas noutros ficheiros '.xml'.
+ */
 public class XPATH {
 
     /**

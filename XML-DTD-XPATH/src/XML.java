@@ -22,6 +22,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Classe que trabalha com tudo relacionado ao XML
+ * Encarregada de salvar e carregar o projeto.
+ */
 public class XML {
 
     /**
