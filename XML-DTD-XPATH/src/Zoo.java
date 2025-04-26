@@ -29,6 +29,13 @@ public class Zoo {
         this.precario = precario;
     }
 
+    /**
+     * Retorna a única instância da classe Zoo, criando-a caso ainda não exista.
+     *
+     * @param name     O nome a ser usado caso seja criada uma nova instância de Zoo.
+     * @param precario O valor do precário a ser usado caso seja criada uma nova instância de Zoo.
+     * @return A única instância da classe Zoo.
+     */
     public static Zoo getZooInstance(String name, int precario) {
         if (instance == null) {
             instance = new Zoo(name, precario);
@@ -82,15 +89,15 @@ public class Zoo {
     public boolean requiredFoodToAnimal(int ID, String name) {
         int countCheck = 0, leoes = 0, elefantes = 0, girafas = 0, pinguins = 0;
         for (Funcionario funcionario : funcionarios)
-            if (funcionario.getID() == ID) for (Object animal : ((Tratador) funcionario).getAnimaisAssociados()) {
+            if (funcionario.getID() == ID) for (Animal animal : ((Tratador) funcionario).getAnimaisAssociados()) {
                 if (animal instanceof Leao) leoes++;
                 else if (animal instanceof Elefante) elefantes++;
                 else if (animal instanceof Girafa) girafas++;
                 else if (animal instanceof Pinguim) pinguins++;
-                if (name.equals("todos") && ((Animal) animal).requiredFood(carne.getQuantidade(), palha.getQuantidade(), peixe.getQuantidade(), leoes, elefantes, girafas, pinguins))
+                if (name.equals("todos") && animal.requiredFood(carne.getQuantidade(), palha.getQuantidade(), peixe.getQuantidade(), leoes, elefantes, girafas, pinguins))
                     countCheck++;
-                else if (((Animal) animal).getName().equals(name))
-                    return ((Animal) animal).requiredFood(carne.getQuantidade(), palha.getQuantidade(), peixe.getQuantidade(), leoes, elefantes, girafas, pinguins);
+                else if (animal.getName().equals(name))
+                    return animal.requiredFood(carne.getQuantidade(), palha.getQuantidade(), peixe.getQuantidade(), leoes, elefantes, girafas, pinguins);
                 if (countCheck == ((Tratador) funcionario).getAnimaisAssociados().size()) return true;
             }
         return false;
@@ -105,13 +112,13 @@ public class Zoo {
     public void darComida(int ID, String name) {
         for (Funcionario funcionario : funcionarios)
             if (funcionario.getID() == ID) {
-                for (Object animal : ((Tratador) funcionario).getAnimaisAssociados()) {
+                for (Animal animal : ((Tratador) funcionario).getAnimaisAssociados()) {
                     if (name.equals("todos")) {
                         if (animal instanceof Leao) carne.setQuantidade(carne.getQuantidade() - 6);
                         else if (animal instanceof Elefante) palha.setQuantidade(palha.getQuantidade() - 135);
                         else if (animal instanceof Girafa) palha.setQuantidade(palha.getQuantidade() - 66);
                         else if (animal instanceof Pinguim) peixe.setQuantidade(peixe.getQuantidade() - 3);
-                    } else if (((Animal) animal).getName().equals(name)) {
+                    } else if (animal.getName().equals(name)) {
                         if (animal instanceof Leao) carne.setQuantidade(carne.getQuantidade() - 6);
                         else if (animal instanceof Elefante) palha.setQuantidade(palha.getQuantidade() - 135);
                         else if (animal instanceof Girafa) palha.setQuantidade(palha.getQuantidade() - 66);

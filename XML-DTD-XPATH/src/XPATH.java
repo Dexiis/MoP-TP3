@@ -14,6 +14,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class XPATH {
+
+    /**
+     * Procura por uma lista de entidades no ficheiro XML especificado e imprime as suas informações na consola.
+     *
+     * @param entity   O nome da entidade a procurar no XML.
+     * @param ficheiro O nome do ficheiro XML onde procurar as entidades.
+     */
     public static void lookingForEntityList(String entity, String ficheiro) {
         try {
             NodeList entityNodes = pathFinder(entity, ficheiro);
@@ -40,6 +47,14 @@ public class XPATH {
         }
     }
 
+    /**
+     * Procura por entidades no ficheiro XML que correspondem a um determinado valor para um atributo específico.
+     *
+     * @param entity          O tipo de entidade a procurar.
+     * @param attribute       O nome do atributo a verificar.
+     * @param attributeWanted O atributo que a entidade deve de conter para ser válida.
+     * @param ficheiro        O nome do ficheiro XML onde procurar as entidades.
+     */
     public static void lookingForCharacteristic(String entity, String attribute, String attributeWanted, String ficheiro) {
         int count = 0;
         try {
@@ -106,11 +121,17 @@ public class XPATH {
                 }
                 System.out.println("Quantidade de entidades requeridas: " + count + "\n");
             }
-        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e ) {
+        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
             System.err.println("Erro ao tentar obter os dados do XML.");
         }
     }
 
+    /**
+     * Conta o número de entidades de um tipo específico presentes no ficheiro XML.
+     *
+     * @param entity   O tipo de entidade a contar.
+     * @param ficheiro O nome do ficheiro XML onde realizar a contagem.
+     */
     public static void lookingForNumber(String entity, String ficheiro) {
         int counter = 0;
         int animaisCounter = 0;
@@ -151,6 +172,11 @@ public class XPATH {
         }
     }
 
+    /**
+     * Imprime na consola as informações de todas as entidades encontradas no ficheiro XML especificado.
+     *
+     * @param ficheiro O nome do ficheiro XML do qual ler e imprimir as entidades.
+     */
     public static void printWholeZoo(String ficheiro) {
         try {
             String[] entities = {"leao", "elefante", "girafa", "pinguim", "tratador", "administrador", "guia", "visitante"};
@@ -168,6 +194,12 @@ public class XPATH {
         }
     }
 
+    /**
+     * Imprime os detalhes de um elemento XML que representa uma entidade.
+     *
+     * @param entityElement O elemento XML que representa a entidade a ser impressa.
+     * @param index         Um índice que é usado em casos específicos para aceder a nós filhos (uso dependente da lógica interna do método).
+     */
     private static void printEntities(Element entityElement, int index) {
         switch (entityElement.getNodeName().trim()) {
             case "animais":
@@ -214,6 +246,12 @@ public class XPATH {
         }
     }
 
+    /**
+     * Retorna a expressão XPath correspondente ao tipo de entidade especificado.
+     *
+     * @param entity O nome da entidade para a qual obter a expressão XPath.
+     * @return A string da expressão XPath ou null se a entidade não for reconhecida.
+     */
     private static String getExpression(String entity) {
         String expression;
         switch (entity) {
@@ -232,6 +270,13 @@ public class XPATH {
         return expression;
     }
 
+    /**
+     * Encontra e retorna uma lista de nós (NodeList) num ficheiro XML que correspondem à expressão XPath associada à entidade especificada.
+     *
+     * @param entity   O nome da entidade para a qual obter a expressão XPath e procurar.
+     * @param ficheiro O nome do ficheiro XML onde realizar a procura.
+     * @return Uma NodeList contendo todos os nós que correspondem à expressão XPath.
+     */
     private static NodeList pathFinder(String entity, String ficheiro) throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
         Document document;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

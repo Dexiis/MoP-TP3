@@ -732,7 +732,7 @@ public class Zoologico {
         Scanner input = new Scanner(System.in);
         boolean invalid = true;
         if (requirement == 1) {
-            printAllEntities();
+            printOutputEntities();
             while (invalid) {
                 invalid = false;
                 switch (input.nextLine()) {
@@ -752,7 +752,7 @@ public class Zoologico {
         }
 
         if (requirement == 2) {
-            printAllEntities();
+            printOutputEntities();
             while (invalid) {
                 invalid = false;
                 switch (input.nextLine()) {
@@ -772,7 +772,7 @@ public class Zoologico {
         }
 
         if (requirement == 3) {
-            printAllEntities();
+            printOutputEntities();
             while (invalid) {
                 invalid = false;
                 switch (input.nextLine()) {
@@ -892,7 +892,7 @@ public class Zoologico {
         }
     }
 
-    private static void printAllEntities() {
+    private static void printOutputEntities() {
         System.out.println("Qual é a entidade que deseja procurar?");
         System.out.println("1 - Leões");
         System.out.println("2 - Elefantes");
@@ -906,6 +906,9 @@ public class Zoologico {
         System.out.println("10 - Funcionarios");
     }
 
+    /**
+     * Solicita ao utilizador o nome do ficheiro para guardar o estado atual do zoo e depois chama o método para guardar o zoo em formato XML.
+     */
     private static void salvarZoo() {
         Scanner input = new Scanner(System.in);
         System.out.println("Qual é o nome do ficheiro que quer guardar o Zoo?");
@@ -913,6 +916,9 @@ public class Zoologico {
         XML.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
     }
 
+    /**
+     * Encerra o programa, guardando o estado atual do zoo para um ficheiro XML, imprimindo os detalhes finais do zoo e saindo da aplicação.
+     */
     private static Object[] carregarZoo(String nomeDoFicheiro) {
         ficheiro = nomeDoFicheiro;
         return XML.carregarZoo(ficheiro);
@@ -925,6 +931,11 @@ public class Zoologico {
         System.exit(0);
     }
 
+    /**
+     * Imprime uma mensagem de erro indicando que a opção ou os argumentos fornecidos são inválidos.
+     *
+     * @return Retorna sempre {@code true}.
+     */
     private static boolean InvalidText() {
         System.out.println("A opção ou um dos argumentos não é válido.");
         return true;

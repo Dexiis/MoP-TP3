@@ -24,6 +24,20 @@ import java.util.ArrayList;
 
 public class XML {
 
+    /**
+     * Salva o estado atual do Zoo, incluindo os seus animais, funcionários, visitantes e stock de alimentos, num ficheiro XML.
+     * O ficheiro XML será guardado numa pasta "XML" com o nome especificado.
+     *
+     * @param zooName      O nome do Zoo a ser guardado.
+     * @param zooPrecario  O valor do precário atual do Zoo.
+     * @param animais      Uma lista de objetos 'Animal' presentes no Zoo.
+     * @param funcionarios Uma lista de objetos 'Funcionario' presentes no Zoo.
+     * @param visitantes   Uma lista de objetos 'Visitante' presentes no Zoo.
+     * @param carne        O objeto Carne representando o stock de carne no Zoo.
+     * @param palha        O objeto Palha representando o stock de palha no Zoo.
+     * @param peixe        O objeto Peixe representando o stock de peixe no Zoo.
+     * @param ficheiro     O nome base do ficheiro XML a ser criado (sem a extensão .xml).
+     */
     public static void salvarZoo(String zooName, int zooPrecario, ArrayList<Animal> animais, ArrayList<Funcionario> funcionarios, ArrayList<Visitante> visitantes, Carne carne, Palha palha, Peixe peixe, String ficheiro) {
         Document documentZoo;
         try {
@@ -181,6 +195,17 @@ public class XML {
         }
     }
 
+    /**
+     * Carrega os dados de um Zoo a partir de um ficheiro XML.
+     * O ficheiro é procurado diretamente no diretório atual se o nome for "ZooPredefinido",
+     * caso contrário, é procurado na pasta "XML".
+     * Os dados carregados incluem o nome do Zoo, preçário, visitantes, animais, funcionários e stock de alimentos.
+     *
+     * @param ficheiro O nome do ficheiro XML a ser carregado (sem a extensão .xml).
+     * @return Um array de Object contendo a instância carregada do Zoo (índice 0) e um booleano indicando
+     * se ocorreu um erro durante o carregamento (índice 1). Retorna {@code null} para o Zoo
+     * e {@code true} para o erro caso a leitura falhe.
+     */
     public static Object[] carregarZoo(String ficheiro) {
         Zoo newZoo = null;
         try {
@@ -241,7 +266,8 @@ public class XML {
 
                                 switch (animalType) {
                                     case "Leao" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "leão");
-                                    case "Elefante" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "elefante");
+                                    case "Elefante" ->
+                                            newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "elefante");
                                     case "Girafa" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "girafa");
                                     case "Pinguim" -> newZoo.addAnimais(nameAnimal, ageAnimal, weightAnimal, "pinguim");
                                 }
@@ -276,7 +302,8 @@ public class XML {
                                 int experienceTratador = Integer.parseInt(funcionarioElement.getElementsByTagName("experience").item(0).getTextContent());
 
                                 switch (funcionarioType) {
-                                    case "Administrador" -> newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "administrador");
+                                    case "Administrador" ->
+                                            newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "administrador");
                                     case "Tratador" -> {
                                         newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "tratador");
                                         for (int j = 0; j < funcionarioElement.getElementsByTagName("animal_associated").getLength(); j++) {
@@ -284,7 +311,8 @@ public class XML {
                                             newZoo.setAnimalTratador(idFuncionario, words[2]);
                                         }
                                     }
-                                    case "Guia" -> newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "guia");
+                                    case "Guia" ->
+                                            newZoo.addFuncionarios(nameFuncionario, ageFuncionario, idFuncionario, experienceTratador, "guia");
                                 }
                             }
                         }

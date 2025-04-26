@@ -30,6 +30,13 @@ public class Zoo implements Serializable {
         this.precario = precario;
     }
 
+    /**
+     * Retorna a única instância da classe Zoo, criando-a caso ainda não exista.
+     *
+     * @param name     O nome a ser usado caso seja criada uma nova instância de Zoo.
+     * @param precario O valor do precário a ser usado caso seja criada uma nova instância de Zoo.
+     * @return A única instância da classe Zoo.
+     */
     public static Zoo getZooInstance(String name, int precario) {
         if (instance == null) {
             instance = new Zoo(name, precario);
@@ -132,11 +139,11 @@ public class Zoo implements Serializable {
      *
      * @param name   Nome do animal.
      * @param age    Idade do animal.
-     * @param weigth Peso do animal.
+     * @param weight Peso do animal.
      * @param type   Tipo do animal
      */
-    public void addAnimais(String name, int age, int weigth, String type) {
-        animais.add(AnimalFactory.getAnimal(name, age, weigth, type));
+    public void addAnimais(String name, int age, int weight, String type) {
+        animais.add(AnimalFactory.getAnimal(name, age, weight, type));
         System.out.println("O(A) " + type + " foi adicionado com sucesso!");
     }
 
