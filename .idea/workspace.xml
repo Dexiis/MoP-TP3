@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Serialization/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Zoo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Serialization/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/Serialization/src/Zoologico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +118,7 @@
       <workItem from="1745536662012" duration="9349000" />
       <workItem from="1745673274480" duration="7455000" />
       <workItem from="1745681050251" duration="1368000" />
+      <workItem from="1745687064559" duration="290000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
       <option name="closed" value="true" />

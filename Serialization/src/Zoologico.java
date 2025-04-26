@@ -701,6 +701,9 @@ public class Zoologico {
         }
     }
 
+    /**
+     * Solicita ao utilizador o nome do ficheiro para salvar o estado atual do zoo e depois guarda o objeto Zoo em memória para um ficheiro serializado (.sav).
+     */
     public static void salvarZoo() {
         Scanner input = new Scanner(System.in);
         String ficheiro;
@@ -716,6 +719,11 @@ public class Zoologico {
         }
     }
 
+    /**
+     * Salva o objeto Zoo atualmente em memória para um ficheiro serializado (.sav).
+     *
+     * @param ficheiro O nome do ficheiro .sav para onde o Zoo será salvo.
+     */
     public static void salvarZoo(String ficheiro) {
         try (FileOutputStream zooOutputFile = new FileOutputStream(ficheiro + ".sav"); ObjectOutputStream zooOutputObject = new ObjectOutputStream(zooOutputFile)) {
             zooOutputObject.writeObject(zoo);
@@ -727,7 +735,12 @@ public class Zoologico {
         }
     }
 
-
+    /**
+     * Carrega um objeto Zoo a partir de um ficheiro serializado (.sav).
+     *
+     * @param nomeDoFicheiro O nome do ficheiro .sav a partir do qual carregar o Zoo.
+     * @return {@code false} se o carregamento for bem-sucedido, {@code true} se ocorrer um erro.
+     */
     private static boolean carregarZoo(String nomeDoFicheiro) throws ClassNotFoundException {
         ficheiro = nomeDoFicheiro;
         try (FileInputStream zooInputFile = new FileInputStream(ficheiro + ".sav"); ObjectInputStream zooInputObject = new ObjectInputStream(zooInputFile)) {
@@ -739,6 +752,9 @@ public class Zoologico {
         return false;
     }
 
+    /**
+     * Encerra o programa, guardando o estado atual do zoo para um ficheiro XML, imprimindo os detalhes finais do zoo e saindo da aplicação.
+     */
     private static void encerrarPrograma() {
         System.out.println("Este é o final do seu zoo:");
         salvarZoo(ficheiro);
@@ -746,6 +762,11 @@ public class Zoologico {
         System.exit(0);
     }
 
+    /**
+     * Imprime uma mensagem de erro indicando que a opção ou os argumentos fornecidos são inválidos.
+     *
+     * @return Retorna sempre {@code true}.
+     */
     private static boolean InvalidText() {
         System.out.println("A opção ou um dos argumentos não é válido.");
         return true;

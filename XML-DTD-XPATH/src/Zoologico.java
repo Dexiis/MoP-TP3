@@ -917,13 +917,19 @@ public class Zoologico {
     }
 
     /**
-     * Encerra o programa, guardando o estado atual do zoo para um ficheiro XML, imprimindo os detalhes finais do zoo e saindo da aplicação.
+     * Define o nome do ficheiro global e chama o método da classe XML para carregar o Zoo a partir de um ficheiro XML.
+     *
+     * @param nomeDoFicheiro O nome do ficheiro XML (.xml) a partir do qual carregar o Zoo.
+     * @return Um array de 'Object' contendo a instância carregada do Zoo (índice 0) e um booleano indicando se ocorreu um erro durante o carregamento (índice 1).
      */
     private static Object[] carregarZoo(String nomeDoFicheiro) {
         ficheiro = nomeDoFicheiro;
         return XML.carregarZoo(ficheiro);
     }
 
+    /**
+     * Encerra o programa, guardando o estado atual do zoo para um ficheiro XML, imprimindo os detalhes finais do zoo e saindo da aplicação.
+     */
     private static void encerrarPrograma() {
         System.out.println("Este é o final do seu zoo:");
         XML.salvarZoo(zoo.name, zoo.precario, zoo.animais, zoo.funcionarios, zoo.visitantes, zoo.carne, zoo.palha, zoo.peixe, ficheiro);
