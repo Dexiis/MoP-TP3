@@ -615,8 +615,8 @@ public class Zoologico {
             while (invalid) {
                 invalid = false;
                 System.out.println("Quais são os animais da deita que deseja visualizar?");
-                System.out.println("1 - Carnivoros.");
-                System.out.println("2 - Herbivoros.");
+                System.out.println("1 - Carnívoros.");
+                System.out.println("2 - Herbívoros.");
                 System.out.println("3 - Voltar para trás.");
                 switch (input.nextLine()) {
                     case "1" -> zoo.printAnimais("Carnivoro");
@@ -730,89 +730,71 @@ public class Zoologico {
 
     private static void OZPRequiredList(String otherZooFile, int requirement) {
         Scanner input = new Scanner(System.in);
+        boolean invalid = true;
         if (requirement == 1) {
-            System.out.println("Qual é a entidade que deseja procurar?");
-            System.out.println("1 - Leões");
-            System.out.println("2 - Elefantes");
-            System.out.println("3 - Girafas");
-            System.out.println("4 - Pinguins");
-            System.out.println("5 - Tratadores");
-            System.out.println("6 - Administradores");
-            System.out.println("7 - Guias");
-            System.out.println("8 - Visitantes");
-            System.out.println("9 - Animais");
-            System.out.println("10 - Funcionarios");
-            switch (input.nextLine()) {
-                case "1" -> XPATH.lookingForEntityList("leao", otherZooFile);
-                case "2" -> XPATH.lookingForEntityList("elefante", otherZooFile);
-                case "3" -> XPATH.lookingForEntityList("girafa", otherZooFile);
-                case "4" -> XPATH.lookingForEntityList("pinguim", otherZooFile);
-                case "5" -> XPATH.lookingForEntityList("tratador", otherZooFile);
-                case "6" -> XPATH.lookingForEntityList("administrador", otherZooFile);
-                case "7" -> XPATH.lookingForEntityList("guias", otherZooFile);
-                case "8" -> XPATH.lookingForEntityList("visitante", otherZooFile);
-                case "9" -> XPATH.lookingForEntityList("animais", otherZooFile);
-                case "10" -> XPATH.lookingForEntityList("funcionarios", otherZooFile);
-                default -> System.out.println("Essa opção não foi encontrada.");
+            printAllEntities();
+            while (invalid) {
+                invalid = false;
+                switch (input.nextLine()) {
+                    case "1" -> XPATH.lookingForEntityList("leao", otherZooFile);
+                    case "2" -> XPATH.lookingForEntityList("elefante", otherZooFile);
+                    case "3" -> XPATH.lookingForEntityList("girafa", otherZooFile);
+                    case "4" -> XPATH.lookingForEntityList("pinguim", otherZooFile);
+                    case "5" -> XPATH.lookingForEntityList("tratador", otherZooFile);
+                    case "6" -> XPATH.lookingForEntityList("administrador", otherZooFile);
+                    case "7" -> XPATH.lookingForEntityList("guia", otherZooFile);
+                    case "8" -> XPATH.lookingForEntityList("visitante", otherZooFile);
+                    case "9" -> XPATH.lookingForEntityList("animais", otherZooFile);
+                    case "10" -> XPATH.lookingForEntityList("funcionarios", otherZooFile);
+                    default -> invalid = InvalidText();
+                }
             }
         }
 
         if (requirement == 2) {
-            System.out.println("Qual é a entidade que deseja procurar?");
-            System.out.println("1 - Leões");
-            System.out.println("2 - Elefantes");
-            System.out.println("3 - Girafas");
-            System.out.println("4 - Pinguins");
-            System.out.println("5 - Tratadores");
-            System.out.println("6 - Administradores");
-            System.out.println("7 - Guias");
-            System.out.println("8 - Visitantes");
-            System.out.println("9 - Animais");
-            System.out.println("10 - Funcionarios");
-            switch (input.nextLine()) {
-                case "1" -> OZPRequiredList2("leao", otherZooFile);
-                case "2" -> OZPRequiredList2("elefante", otherZooFile);
-                case "3" -> OZPRequiredList2("girafa", otherZooFile);
-                case "4" -> OZPRequiredList2("pinguim", otherZooFile);
-                case "5" -> OZPRequiredList2("tratador", otherZooFile);
-                case "6" -> OZPRequiredList2("administrador", otherZooFile);
-                case "7" -> OZPRequiredList2("guias", otherZooFile);
-                case "8" -> OZPRequiredList2("visitante", otherZooFile);
-                case "9" -> OZPRequiredList2("animais", otherZooFile);
-                case "10" -> OZPRequiredList2("funcionarios", otherZooFile);
-                default -> System.out.println("Essa opção não foi encontrada.");
+            printAllEntities();
+            while (invalid) {
+                invalid = false;
+                switch (input.nextLine()) {
+                    case "1" -> OZPRequiredList2("leao", otherZooFile);
+                    case "2" -> OZPRequiredList2("elefante", otherZooFile);
+                    case "3" -> OZPRequiredList2("girafa", otherZooFile);
+                    case "4" -> OZPRequiredList2("pinguim", otherZooFile);
+                    case "5" -> OZPRequiredList2("tratador", otherZooFile);
+                    case "6" -> OZPRequiredList2("administrador", otherZooFile);
+                    case "7" -> OZPRequiredList2("guia", otherZooFile);
+                    case "8" -> OZPRequiredList2("visitante", otherZooFile);
+                    case "9" -> OZPRequiredList2("animais", otherZooFile);
+                    case "10" -> OZPRequiredList2("funcionarios", otherZooFile);
+                    default -> System.out.println("Essa opção não foi encontrada.");
+                }
             }
         }
+
         if (requirement == 3) {
-            System.out.println("Qual é a entidade que deseja procurar?");
-            System.out.println("1 - Leões");
-            System.out.println("2 - Elefantes");
-            System.out.println("3 - Girafas");
-            System.out.println("4 - Pinguins");
-            System.out.println("5 - Tratadores");
-            System.out.println("6 - Administradores");
-            System.out.println("7 - Guias");
-            System.out.println("8 - Visitantes");
-            System.out.println("9 - Animais");
-            System.out.println("10 - Funcionarios");
-            switch (input.nextLine()) {
-                case "1" -> XPATH.lookingForNumber("leao", otherZooFile);
-                case "2" -> XPATH.lookingForNumber("elefante", otherZooFile);
-                case "3" -> XPATH.lookingForNumber("girafa", otherZooFile);
-                case "4" -> XPATH.lookingForNumber("pinguim", otherZooFile);
-                case "5" -> XPATH.lookingForNumber("tratador", otherZooFile);
-                case "6" -> XPATH.lookingForNumber("administrador", otherZooFile);
-                case "7" -> XPATH.lookingForNumber("guia", otherZooFile);
-                case "8" -> XPATH.lookingForNumber("visitante", otherZooFile);
-                case "9" -> XPATH.lookingForNumber("animais", otherZooFile);
-                case "10" -> XPATH.lookingForNumber("funcionarios", otherZooFile);
-                default -> System.out.println("Essa opção não foi encontrada.");
+            printAllEntities();
+            while (invalid) {
+                invalid = false;
+                switch (input.nextLine()) {
+                    case "1" -> XPATH.lookingForNumber("leao", otherZooFile);
+                    case "2" -> XPATH.lookingForNumber("elefante", otherZooFile);
+                    case "3" -> XPATH.lookingForNumber("girafa", otherZooFile);
+                    case "4" -> XPATH.lookingForNumber("pinguim", otherZooFile);
+                    case "5" -> XPATH.lookingForNumber("tratador", otherZooFile);
+                    case "6" -> XPATH.lookingForNumber("administrador", otherZooFile);
+                    case "7" -> XPATH.lookingForNumber("guia", otherZooFile);
+                    case "8" -> XPATH.lookingForNumber("visitante", otherZooFile);
+                    case "9" -> XPATH.lookingForNumber("animais", otherZooFile);
+                    case "10" -> XPATH.lookingForNumber("funcionarios", otherZooFile);
+                    default -> System.out.println("Essa opção não foi encontrada.");
+                }
             }
         }
     }
 
     private static void OZPRequiredList2(String entity, String otherZooFile) {
         Scanner input = new Scanner(System.in);
+        boolean invalid = true;
         if (entity.equals("leao") | entity.equals("elefante") | entity.equals("girafa") | entity.equals("pinguim") | entity.equals("animais")) {
             System.out.println("Qual é a caracteristica que deseja procurar?");
             System.out.println("1 - Nome");
@@ -820,30 +802,33 @@ public class Zoologico {
             System.out.println("3 - Peso");
             System.out.println("4 - Dieta");
             System.out.println("5 - Tipo");
-            switch (input.nextLine()) {
-                case "1":
-                    System.out.println("Qual é o nome que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
-                    break;
-                case "2":
-                    System.out.println("Qual é a idade que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
-                    break;
-                case "3":
-                    System.out.println("Qual é o peso que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "weight", input.nextLine(), otherZooFile);
-                    break;
-                case "4":
-                    System.out.println("Qual é a deita que deseja procurar?\n (Carnivoro ou Herbivero)");
-                    XPATH.lookingForCharacteristic(entity, "diet", input.nextLine(), otherZooFile);
-                    break;
-                case "5":
-                    System.out.println("Qual é o tipo que deseja procurar? (Mamífero ou Ave)");
-                    XPATH.lookingForCharacteristic(entity, "type", input.nextLine(), otherZooFile);
-                    break;
-                default:
-                    System.out.println("Essa opção não foi encontrada.");
-                    break;
+            while (invalid) {
+                invalid = false;
+                switch (input.nextLine()) {
+                    case "1":
+                        System.out.println("Qual é o nome que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
+                        break;
+                    case "2":
+                        System.out.println("Qual é a idade que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
+                        break;
+                    case "3":
+                        System.out.println("Qual é o peso que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "weight", input.nextLine(), otherZooFile);
+                        break;
+                    case "4":
+                        System.out.println("Qual é a deita que deseja procurar?\n (Carnivoro ou Herbivero)");
+                        XPATH.lookingForCharacteristic(entity, "diet", input.nextLine(), otherZooFile);
+                        break;
+                    case "5":
+                        System.out.println("Qual é o tipo que deseja procurar? (Mamífero ou Ave)");
+                        XPATH.lookingForCharacteristic(entity, "type", input.nextLine(), otherZooFile);
+                        break;
+                    default:
+                        System.out.println("Essa opção não foi encontrada.");
+                        break;
+                }
             }
         }
 
@@ -853,26 +838,29 @@ public class Zoologico {
             System.out.println("2 - Idade");
             System.out.println("3 - ID");
             System.out.println("4 - Experiencia");
-            switch (input.nextLine()) {
-                case "1":
-                    System.out.println("Qual é o nome que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
-                    break;
-                case "2":
-                    System.out.println("Qual é a idade que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
-                    break;
-                case "3":
-                    System.out.println("Qual é o peso que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "ID", input.nextLine(), otherZooFile);
-                    break;
-                case "4":
-                    System.out.println("Qual é a deita que deseja procurar?\n (Carnivoro ou Herbivero)");
-                    XPATH.lookingForCharacteristic(entity, "experience", input.nextLine(), otherZooFile);
-                    break;
-                default:
-                    System.out.println("Essa opção não foi encontrada.");
-                    break;
+            while (invalid) {
+                invalid = false;
+                switch (input.nextLine()) {
+                    case "1":
+                        System.out.println("Qual é o nome que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
+                        break;
+                    case "2":
+                        System.out.println("Qual é a idade que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
+                        break;
+                    case "3":
+                        System.out.println("Qual é o peso que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "ID", input.nextLine(), otherZooFile);
+                        break;
+                    case "4":
+                        System.out.println("Qual é a deita que deseja procurar?\n (Carnivoro ou Herbivero)");
+                        XPATH.lookingForCharacteristic(entity, "experience", input.nextLine(), otherZooFile);
+                        break;
+                    default:
+                        System.out.println("Essa opção não foi encontrada.");
+                        break;
+                }
             }
         }
 
@@ -881,24 +869,41 @@ public class Zoologico {
             System.out.println("1 - Nome");
             System.out.println("2 - Idade");
             System.out.println("3 - ID");
-            switch (input.nextLine()) {
-                case "1":
-                    System.out.println("Qual é o nome que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
-                    break;
-                case "2":
-                    System.out.println("Qual é a idade que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
-                    break;
-                case "3":
-                    System.out.println("Qual é o peso que deseja procurar?");
-                    XPATH.lookingForCharacteristic(entity, "ID", input.nextLine(), otherZooFile);
-                    break;
-                default:
-                    System.out.println("Essa opção não foi encontrada.");
-                    break;
+            while (invalid) {
+                invalid = false;
+                switch (input.nextLine()) {
+                    case "1":
+                        System.out.println("Qual é o nome que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "name", input.nextLine(), otherZooFile);
+                        break;
+                    case "2":
+                        System.out.println("Qual é a idade que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "age", input.nextLine(), otherZooFile);
+                        break;
+                    case "3":
+                        System.out.println("Qual é o peso que deseja procurar?");
+                        XPATH.lookingForCharacteristic(entity, "ID", input.nextLine(), otherZooFile);
+                        break;
+                    default:
+                        System.out.println("Essa opção não foi encontrada.");
+                        break;
+                }
             }
         }
+    }
+
+    private static void printAllEntities() {
+        System.out.println("Qual é a entidade que deseja procurar?");
+        System.out.println("1 - Leões");
+        System.out.println("2 - Elefantes");
+        System.out.println("3 - Girafas");
+        System.out.println("4 - Pinguins");
+        System.out.println("5 - Tratadores");
+        System.out.println("6 - Administradores");
+        System.out.println("7 - Guias");
+        System.out.println("8 - Visitantes");
+        System.out.println("9 - Animais");
+        System.out.println("10 - Funcionarios");
     }
 
     private static void salvarZoo() {

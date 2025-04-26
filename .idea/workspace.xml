@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="109d8526-0c9e-4cc7-9496-03591180e247" name="Changes" comment="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/XML-DTD-XPATH/src/Zoologico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML/BaseDados.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +117,7 @@
       <workItem from="1745532194965" duration="401000" />
       <workItem from="1745534705513" duration="883000" />
       <workItem from="1745536662012" duration="9349000" />
+      <workItem from="1745673274480" duration="7455000" />
     </task>
     <task id="LOCAL-00001" summary="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation.">
       <option name="closed" value="true" />
@@ -141,16 +144,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
     <option name="LAST_COMMIT_MESSAGE" value="Changed the Zoo class to proper implement the Singleton pattern without the ZooSingleton.java encapsulation." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/XML-DTD-XPATH/src/XPATH.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

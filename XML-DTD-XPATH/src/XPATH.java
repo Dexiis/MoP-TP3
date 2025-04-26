@@ -22,8 +22,7 @@ public class XPATH {
                 System.out.println("Nenhuma entidade encontrada no XML.");
             } else {
                 for (int i = 0; i < entityNodes.getLength(); i++) {
-                    Node entityNode = entityNodes.item(i);
-                    Element entityElement = (Element) entityNode;
+                    Element entityElement = (Element) entityNodes.item(i);
                     if (entity.equals("animais") || entity.equals("funcionarios")) {
                         for (int j = 0; j < entityElement.getChildNodes().getLength(); j++) {
                             if (entityElement.getChildNodes().item(j).getNodeType() == Node.ELEMENT_NODE) {
@@ -41,30 +40,73 @@ public class XPATH {
         }
     }
 
-    public static void lookingForCharacteristic(String entity, String attribute, String attributeRequired, String ficheiro) {
+    public static void lookingForCharacteristic(String entity, String attribute, String attributeWanted, String ficheiro) {
+        int count = 0;
         try {
             NodeList entityNodes = pathFinder(entity, ficheiro);
             if (entityNodes.getLength() == 0) {
                 System.out.println("Nenhuma entidade encontrada no XML.");
             } else {
+                System.out.println("Esta é a lista de animais\n");
                 for (int i = 0; i < entityNodes.getLength(); i++) {
-                    Node entityNode = entityNodes.item(i);
-                    Element entityElement = (Element) entityNode;
-
-                    if (entityElement.getElementsByTagName(attribute).item(0).getTextContent().equals(attributeRequired)) {
-                        if (entity.equals("animais") || entity.equals("funcionarios")) {
-                            for (int j = 0; j < entityElement.getChildNodes().item(j).getChildNodes().getLength(); j++) {
-                                printEntities(entityElement, j);
+                    Element entityElement = (Element) entityNodes.item(i);
+                    if (entityElement.getNodeType() == Node.ELEMENT_NODE) {
+                        if (entity.equals("animais")) {
+                            for (int j = 0; j < entityElement.getChildNodes().getLength(); j++) {
+                                if (entityElement.getChildNodes().item(j).getNodeType() == Node.ELEMENT_NODE) {
+                                    Element newEntityElement = (Element) entityElement.getChildNodes().item(j);
+                                    if (attribute.equals("name")) {
+                                        if (newEntityElement.getAttribute(attribute).trim().equals(attributeWanted)) {
+                                            printEntities(newEntityElement, j);
+                                            count++;
+                                        }
+                                    } else if (newEntityElement.getElementsByTagName(attribute).item(0).getTextContent().trim().equals(attributeWanted)) {
+                                        printEntities(newEntityElement, 0);
+                                        count++;
+                                    }
+                                }
+                            }
+                        } else if (entity.equals("funcionarios")) {
+                            for (int j = 0; j < entityElement.getChildNodes().getLength(); j++) {
+                                if (entityElement.getChildNodes().item(j).getNodeType() == Node.ELEMENT_NODE) {
+                                    Element newEntityElement = (Element) entityElement.getChildNodes().item(j);
+                                    if (attribute.equals("ID")) {
+                                        if (newEntityElement.getAttribute(attribute).trim().equals(attributeWanted)) {
+                                            printEntities(newEntityElement, j);
+                                            count++;
+                                        }
+                                    } else if (newEntityElement.getElementsByTagName(attribute).item(0).getTextContent().trim().equals(attributeWanted)) {
+                                        printEntities(newEntityElement, 0);
+                                        count++;
+                                    }
+                                }
+                            }
+                        } else if (entity.equals("leao") | entity.equals("elefante") | entity.equals("girafa") | entity.equals("pinguim")) {
+                            if (attribute.equals("name")) {
+                                if (entityElement.getAttribute(attribute).trim().equals(attributeWanted)) {
+                                    printEntities(entityElement, 0);
+                                    count++;
+                                }
+                            } else if (entityElement.getElementsByTagName(attribute).item(0).getTextContent().trim().equals(attributeWanted)) {
+                                printEntities(entityElement, 0);
+                                count++;
                             }
                         } else {
-                            printEntities(entityElement, 0);
+                            if (attribute.equals("ID")) {
+                                if (entityElement.getAttribute(attribute).trim().equals(attributeWanted)) {
+                                    printEntities(entityElement, 0);
+                                    count++;
+                                }
+                            } else if (entityElement.getElementsByTagName(attribute).item(0).getTextContent().trim().equals(attributeWanted)) {
+                                printEntities(entityElement, 0);
+                                count++;
+                            }
                         }
                     }
                 }
+                System.out.println("Quantidade de entidades requeridas: " + count + "\n");
             }
-        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException |
-                 NullPointerException e) {
-            e.printStackTrace();
+        } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e ) {
             System.err.println("Erro ao tentar obter os dados do XML.");
         }
     }
@@ -72,11 +114,11 @@ public class XPATH {
     public static void lookingForNumber(String entity, String ficheiro) {
         int counter = 0;
         int animaisCounter = 0;
-        String newEntity = entity;
+        String entityPath = entity;
         try {
-            if (entity.equals("animais")) newEntity = "leao";
-            else if (entity.equals("funcionarios")) newEntity = "tratador";
-            NodeList entityNodes = pathFinder(newEntity, ficheiro);
+            if (entity.equals("animais")) entityPath = "leao";
+            else if (entity.equals("funcionarios")) entityPath = "tratador";
+            NodeList entityNodes = pathFinder(entityPath, ficheiro);
             Element entityElement = (Element) entityNodes.item(0);
 
             if (entityNodes.getLength() == 0) {
@@ -122,7 +164,7 @@ public class XPATH {
                 }
             }
         } catch (ParserConfigurationException | XPathExpressionException | SAXException | IOException e) {
-            System.out.println("Erro ao printar o Zoológico!");
+            System.out.println("Erro ao escrever o Zoológico!");
         }
     }
 
@@ -140,7 +182,7 @@ public class XPATH {
                 String dietAnimal = entityElement.getElementsByTagName("diet").item(0).getTextContent();
                 String typeAnimal = entityElement.getElementsByTagName("type").item(0).getTextContent();
 
-                System.out.println(entityElement.getNodeName().trim() + " --> Nome: " + nameAnimal + ", Idade: " + ageAnimal + ", Peso: " + weightAnimal + ", Dietia: " + dietAnimal + ", Tipo: " + typeAnimal);
+                System.out.println(entityElement.getNodeName().trim() + " --> Nome: " + nameAnimal + ", Idade: " + ageAnimal + ", Peso: " + weightAnimal + ", Dieta: " + dietAnimal + ", Tipo: " + typeAnimal);
                 break;
             case "funcionarios":
                 entityElement = (Element) entityElement.getChildNodes().item(index).getChildNodes();
